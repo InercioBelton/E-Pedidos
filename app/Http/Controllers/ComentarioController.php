@@ -31,8 +31,11 @@ class ComentarioController extends Controller
 
 					 	\App\Comentarios::create($input);
 
-					 	$request->session()->flash('alert-success', 'User was successful added!');
-					    return redirect()->back();
+					 	notify()->flash('Obrigado pelo seu comentario!','success');
+
+					 return redirect()->away('/restaurante#tituloContacte');
+
+					 	
 
 					}
 

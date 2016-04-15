@@ -101,8 +101,10 @@ and open the template in the editor.
 
         </header>
 
+         
+                
 
-
+               {!! session_start(); !!}
             <section class="cardapio">
     
                 <div class="container">
@@ -116,7 +118,7 @@ and open the template in the editor.
                                      <div class="col-md-12 menu-list ">
                                         <div id="meuMenu">
                                         <ul class="nav nav-tabs">
-                                               <li class="active"><a data-toggle="tab" href="#home">Pizzas</a></li>
+                                        <li class="active"><a data-toggle="tab" href="#home">Pizzas</a></li>
 
                                                <li><a data-toggle="tab" href="#menu1">Bebidas</a></li>
 
@@ -128,6 +130,8 @@ and open the template in the editor.
                           <div class="tab-content">
                                              <div id="home" class="tab-pane fade in active">
                                                <ul class="listaProdutos">
+
+
                                                      @foreach($categorias as $Categoria)
                                                            @if($Categoria->descricao == "Pizzas")
 
@@ -135,12 +139,18 @@ and open the template in the editor.
                                           @if($Produtos->categoria_id == $Categoria->id)
 
                                          <li>
-                                             <p class="menuname">{!! $Produtos->nomeProduto  !!}</p>  
+                                       
 
+                                        {!!Form::open(['route'=>'cart.store', 'method'=>'POST'])!!}
+                                       
+                                         <?php $_SESSION['id'] = $Produtos->id ?>
+                                             <p class="menuname">{!! $Produtos->nomeProduto  !!}</p>  
+                                            
                                              <p class="price"> {!! $Produtos->preco !!} Mtn
-                                              <button class="addCart glyphicon glyphicon-plus"></button>
+                                              <button type="input" class="addCart glyphicon glyphicon-plus"></button>
                                               </p>
-                                                                  
+                                           
+                                           {!!Form::close()!!}                       
                                         </li>
                                                                   
                                         @endif
@@ -173,7 +183,7 @@ and open the template in the editor.
 
                                                 <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                 <button class="addCart glyphicon glyphicon-plus"></button>
+                                                 <button type="input" class="addCart glyphicon glyphicon-plus"></button>
 
                                                 </p>
 
@@ -209,7 +219,7 @@ and open the template in the editor.
 
                                              <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                              <button class="addCart glyphicon glyphicon-plus"></button>
+                                              <button type="input" class="addCart glyphicon glyphicon-plus"></button>
 
                                              </p>
 
@@ -242,7 +252,7 @@ and open the template in the editor.
 
                                                      <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                      <button class="addCart glyphicon glyphicon-plus"></button>
+                                                      <button type="input" class="addCart glyphicon glyphicon-plus"></button>
 
                                                      </p>
 
@@ -276,6 +286,10 @@ and open the template in the editor.
 
                                         <div class="col-md-10 col-md-offset-2" id="meuPedido">
                                           
+                                        <!-- Cart -->
+
+
+
 
                                      </div>
                                         <div class="forming col-md-2 col-md-offset-4">
@@ -302,7 +316,7 @@ and open the template in the editor.
              <section class="destaque" style="margin-top: 30px;">
                     <div id="rowReserva" class="row" style=" background: rgba(1,1,1,.7);">
                          <div class="col-md-offset-2">
-                            <ul class="team-list">
+                            <ul class="listaUl">
           
                                  <li class="col-md-3 listaDestaque">
                                     <div class="team-item thumbnail">
@@ -384,28 +398,11 @@ and open the template in the editor.
                                              
                                           {!!Form::open(['route'=>'reserva.store', 'method'=>'POST'])!!}
 
-                                               <div class="form">
-
-                                                  @if($errors->any())
-                                                      <div class="alert alert-danger">
-                                                          @foreach($errors->all() as $error)
-                                                              <p>{{ $error }}</p>
-                                                          @endforeach
-                                                      </div>
-                                                  @endif
-
-                                                  <div class="flash-message">
-                                                 @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                                                   @if(Session::has('alert-' . $msg))
-
-                                                   <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-                                                   @endif
-                                                 @endforeach
-                                               </div>
+                                               <div class="form">                                        
 
                                         <div class="col-md-10 col-md-offset-1 forming">
 
-                                              <form role="form">
+                                              <form role="form" name="form1">
 
                                                 <div class="col-md-6 col-sm-6">
 
@@ -466,6 +463,14 @@ and open the template in the editor.
 
                                                   </div>
 
+                                                   @if($errors->any())
+                                                      <div class="alert alert-danger">
+                                                          @foreach($errors->all() as $error)
+                                                              <p>{{ $error }}</p>
+                                                          @endforeach
+                                                      </div>
+                                                  @endif
+
                                                 </div>
 
                                               </form>
@@ -483,23 +488,71 @@ and open the template in the editor.
 
                                <div class="row" style="background: rgba(1,1,1,.95);">
 
-                                            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                                            <div class="col-md-11 col-md-offset-1 col-sm-10 col-sm-offset-1">
 
                                               <h3 id="tituloContacte">Contacte Nos</h3>
 
                                               </div>
 
-                                            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                                              {!!Form::open(['route'=>'comentario.store', 'method'=>'POST'])!!}
 
-                                              <div class="col-md-6 col-sm-6 address">
+                                               <div class="form">
 
-                                                <p>Email - inercio28@gmail.com, outros..</p>
+                                               
+                                            <div class="col-md-7 col-md-offset-1">
 
-                                                <p>Telefones - +258825823292, outros..</p>
 
-                                                <p>Something else....</p>
+                                               <form role="form" id="form2">
+
+                                              <div class="col-md-5">
+
+                                                  <div class="form-group contacte">
+
+                                                    {!!Form::text('nome',null,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
+
+                                                  </div>
+
+                                                  <div class="form-group contacte">
+
+                                                    {!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
+
+                                                  </div>
+
+                                               </div>  
+
+                                                 <div class="col-md-5">
+                                                       
+                                                       <div class="form-group contacte">
+
+                                                         {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'3', 'id'=>'txtComentario', 'placeholder'=>'Deixe o seu comentario'])!!}
+
+                                                       </div>
+
+                                                  </div> 
+
+                                                  <div class="col-md-1">
+                                                       <div class="text-center">
+
+                                                         <button type="submit" id="btEnviar" class="btn">Enviar</button>
+
+                                                       </div>
+                                                  </div>
+
+                                                  </form>
+                                                  {!!Form::close()!!} 
 
                                               </div>
+
+                                         <div class="row">
+                                                  
+                                                   <div class="col-md-2 col-md-offset-0 socialNet">
+                                                  <a href=""> <img class="social" alt="facebook" src="images/facebook.png"> </a>
+                                                  <a href=""> <img class="social" alt="facebook" src="images/twitter.png"> </a>
+                                                  <a href=""> <img class="social" alt="facebook" src="images/google.png"> </a>    
+                                                  </div>
+
+                                          </div>
+
 
                                             </div>
 
@@ -519,7 +572,31 @@ and open the template in the editor.
         </footer>
         
     </body>
-    
+
+
+    <script>
+      @if(notify()->ready())
+        @if(notify()->message()=="Obrigado pelo seu comentario!")
+          swal({
+            title: "Obrigado pelo seu comentario!",
+            text: "Comentario enviado com sucesso",
+            type: 'success'
+        });
+          @endif
+
+          @if(notify()->message()=="reserva criada")
+          swal({
+            title: "Obrigado pela preferencia!",
+            text: "Reserva efectuada com sucesso",
+            type: 'success'
+        });
+          @endif
+
+
+        @endif  
+    </script>
+
+
     
      <script>
             $(document).ready(function () {

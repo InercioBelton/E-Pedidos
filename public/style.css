@@ -220,7 +220,8 @@ a.thumb-info span.thumb-info-title {
             color: #f8bd08;
             text-align: left;
             font-family: 'Poiret One', cursive;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            margin-left: 20px;
             margin-top: 40px;
         }
         
@@ -258,6 +259,15 @@ a.thumb-info span.thumb-info-title {
 
 }
 
+.socialNet{
+    margin-left: 20px;
+    opacity: .7;
+}
+
+.social{
+    margin-left: 5px;
+    margin-bottom: 30px;
+}
 
 a:focus {
 
@@ -308,6 +318,10 @@ a:focus {
 
 .menu-list{
     height: 370px;
+}
+
+.listaUl{
+    padding-left: 0px;
 }
 
 .tab-content ul {
@@ -467,7 +481,7 @@ a:focus {
 
 }
 
-.forming button {
+.forming button, #btEnviar {
 
     border: 2px solid #f8bd08;
 
@@ -489,6 +503,13 @@ a:focus {
 
 }
 
+#btEnviar{
+    margin-top: 35px;
+    padding: 7px 10px;
+    font-size: 20px;
+}
+
+
 .forming button:focus, .forming button:hover {
 
     border: 2px solid #333 !important;
@@ -505,6 +526,20 @@ a:focus {
 
     color: #333;
 
+}
+
+.contacte, #btEnviar{
+    opacity: .8;
+}
+
+#btEnviar:focus, #btEnviar:hover {
+     border: 2px solid #333 !important;
+    background-color: #f8bd08 !important;
+    text-align: center;
+    color: #fff;
+    padding: 7px 10px;
+    font-size: 20px;
+    color: #333;
 }
 
 .form-control {
@@ -534,6 +569,10 @@ a:focus {
 
     font-family: "Lato", sans-serif;
 
+}
+
+#txtComentario{
+    height: 84px;
 }
 
 
@@ -919,21 +958,37 @@ a:focus {
 }
 
 
-#tituloPedido{
-    font-size: 35px;
-    margin-left: 10%;
+#tituloMeuPedido{
+    font-size: 60px;
+    margin-left: -20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
  #btPedido{
     margin-left: 20%;
 }
 
+.forming button, #btEnviar{
+    padding: 5px 10px;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.forming button,#btEnviar:focus, .forming button,#btEnviar:hover {
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+
 #tituloReserva{
     font-size: 45px;
 }
 
 #menu{
-    margin-left: 10%;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .destaque{
@@ -944,6 +999,12 @@ a:focus {
 #rowReserva{
     background: rgba(1,1,1,.0);
      background-color: darkcyan;
+     margin: 0;
+}
+
+#txtComentario{
+    margin-left: 0px;
+
 }
 
 .navb {
@@ -1077,12 +1138,6 @@ header {
 
 }
 
-.upevent-effect {
-
-    padding: 30px 0px;
-
-}
-
 .nav > li > a {
 
     padding: 7px 8px;
@@ -1102,23 +1157,6 @@ header {
 
 }
 
-.book {
-
-    padding: 30px 0px;
-
-}
-
-.address p {
-
-    text-align: center;
-
-}
-
-.social {
-
-    text-align: center;
-
-}
 
 .menu-section {
 

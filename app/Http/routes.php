@@ -32,6 +32,8 @@ Route::get('restaurante', function(){
 
 });
 
+
+
 Route::get('getComentarios', function(){
 	$user = App\Comentarios::find(1);
 	echo "Hey .. my name is ". $user->Nome;
@@ -40,6 +42,8 @@ Route::get('getComentarios', function(){
 Route::resource('comentario','ComentarioController');
 
 Route::resource('reserva','ReservaController');
+
+Route::resource('cart','CartController');
 
 
 ?>

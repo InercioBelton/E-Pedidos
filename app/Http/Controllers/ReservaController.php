@@ -20,18 +20,16 @@ class ReservaController extends Controller
 
 					public function store(ReservaRequest $request){
 
-						$input = $request->all();
+					$input = $request->all();
 
+						 \App\Reserva::create($input);
 
-					 	\App\Reserva::create($input);
+						 notify()->flash('reserva criada','success');
 
-					 	echo "<script> alert('Reserva efectuada com sucesso') </script>";
+						return redirect()->away('/restaurante#tituloReserva');
+						 	
+						}
 
-					    return redirect()->back();
-
-
-
-					}
 
 					public function show($id){
 						
