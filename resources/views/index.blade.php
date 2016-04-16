@@ -147,7 +147,9 @@ and open the template in the editor.
                                              <p class="menuname">{!! $Produtos->nomeProduto  !!}</p>  
                                             
                                              <p class="price"> {!! $Produtos->preco !!} Mtn
-                                              <button type="input" class="addCart glyphicon glyphicon-plus"></button>
+                                              <button type="input" class="addCart glyphicon glyphicon-plus">    
+
+                                               </button>
                                               </p>
                                            
                                            {!!Form::close()!!}                       
