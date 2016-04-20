@@ -24,7 +24,6 @@ class CartRequest extends Request
     public function rules()
     {
         return [
-            //
         ];
     }
 }

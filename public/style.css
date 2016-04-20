@@ -18,6 +18,68 @@ header{
 
 }
 
+.headLogin{
+
+    background:url(images/ws_Wood_Floor_bg.jpg) no-repeat 0% 0% / 100% auto;
+    padding: 0;
+
+}
+
+
+.bgLogin{
+    margin-top: 150px;
+    height: 400px;
+    background: rgba(1,1,1,.4);
+    margin-bottom: 129px;
+}
+
+.lkRegistrar{
+    color: whitesmoke;
+    opacity: .8;
+    font-family:  'Niconne', cursive;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#btEntrar{
+    text-align: center;
+
+    border: 2px solid #f8bd08;
+
+    background-color: #f8bd08;
+
+    color: #fff;
+
+    font-weight: bold;
+
+    font-family: 'Poiret One', cursive;
+
+    padding: 7px 20px;
+
+    opacity: .8;
+
+    font-size: 20px;
+}
+
+#btEntrar:focus, #btEntrar:hover {
+
+    border: 2px solid #333 !important;
+
+    background-color: #f8bd08 !important;
+
+    text-align: center;
+
+    color: #fff;
+
+    padding: 7px 20px;
+
+    font-size: 20px;
+
+    color: #333;
+
+}
+
 h2{
     color: whitesmoke;
     letter-spacing: 5px;
@@ -27,8 +89,8 @@ h2{
 
 #subtituloHeader{
     color: whitesmoke;
-    letter-spacing: 5px;
-    font-family: "Oxygen", sans-serif;
+    letter-spacing: 2px;
+    font-family: "Poiret One", sans-serif;
 }
 
 .cardapio{
@@ -44,11 +106,7 @@ margin-bottom: 30px;
     background:url(images/bg.jpg) no-repeat 0% 0% / 100% auto;
 }
 
-.fullbg {
 
-    background-color:rgba(31, 20, 20, 0.8);
-
-}
 
 .logo {
 
@@ -251,6 +309,7 @@ a.thumb-info span.thumb-info-title {
                 margin-right: 20px;
                 background-color: white;
                 border: 2px solid #f8bd08;
+                color: black;
             }
 
 .row {
@@ -312,8 +371,15 @@ a:focus {
     }
 
 .listaProdutos{
+    margin-left: 0;
+    margin-right: 0;
   max-height:300px;
   overflow-y:auto;
+}
+
+.listaItems{
+    max-height:240px;
+    overflow-y:auto;
 }
 
 .menu-list{
@@ -612,11 +678,7 @@ a:focus {
 
 }
 
-.welcome2 {
 
-    display: none;
-
-}
 
 }
 
@@ -860,10 +922,6 @@ a:focus {
 }
 
 
-
-
-
-
 .navbar-default {
 
     background-color: rgba(255, 255, 255, 0);
@@ -932,11 +990,7 @@ a:focus {
 
 }
 
-.welcome2 {
 
-    display: none;
-
-}
 
 }
 
@@ -949,13 +1003,34 @@ a:focus {
     position: absolute;
 
     font-size: 15px;
-
 }
 
+     .bgLogin{
+         margin-top: 0px;
+         margin-bottom: 0px;
+         height: 600px;
+     }
 
-.menu-list{
-    height: 360px;
-}
+     .loginForm{
+         margin-top: 150px;
+     }
+
+     .form-group{
+         margin-bottom: 30px;
+     }
+
+     .headLogin{
+         height: 600px;
+         margin: 0;
+         padding: 0;
+         background:url(images/ws_Wood_Floor_bg.jpg);
+         /*background-image: none;*/
+         /*background: darkcyan;*/
+     }
+
+
+
+
 
 
 #tituloMeuPedido{
@@ -975,7 +1050,27 @@ a:focus {
     margin-top: 0px;
 }
 
-.forming button,#btEnviar:focus, .forming button,#btEnviar:hover {
+
+.forming button:focus, .forming button:hover {
+
+    border: 2px solid #333 !important;
+
+    background-color: #f8bd08 !important;
+
+    text-align: center;
+
+    color: #fff;
+
+    padding: 5px 10px;
+
+    font-size: 20px;
+
+    color: #333;
+
+}
+
+
+#btEnviar:focus, #btEnviar:hover {
     padding: 5px 10px;
     font-size: 20px;
 }
@@ -1144,19 +1239,12 @@ header {
 
 }
 
-.menu-list {
-
-    float: right;
-    margin-bottom: 30px;
-
-}
 
 .menuhead {
 
     float: right;
 
 }
-
 
 .menu-section {
 

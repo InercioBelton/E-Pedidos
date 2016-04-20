@@ -1,639 +1,678 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>E-Pedido - Pedidos e Reservas Online</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <!DOCTYPE html>
+                                    <html>
+                                        <head>
+                                            <title>E-Pedido - Pedidos e Reservas Online</title>
+                                            <meta charset="UTF-8">
+                                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-        
+                                            {!!Html::style("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")!!}
 
-        {!!Html::style("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")!!}
+                                            {!!Html::style("https://fonts.googleapis.com/css?family=Poiret+One")!!}
 
-        {!!Html::style("https://fonts.googleapis.com/css?family=Poiret+One")!!}
+                                            {!!Html::style("https://fonts.googleapis.com/css?family=Architects+Daughter")!!}
 
-        {!!Html::style("https://fonts.googleapis.com/css?family=Architects+Daughter")!!}
+                                            {!!Html::style("dist/sweetalert.css")!!}
 
-        {!!Html::style("dist/sweetalert.css")!!}
+                                            {!!Html::script("https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js")!!}
 
-        {!!Html::script("https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js")!!}
+                                            {!!Html::script("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")!!}
 
-        {!!Html::script("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")!!}
+                                            {!!Html::script("dist/sweetalert.min.js")!!}
 
-        {!!Html::script("dist/sweetalert.min.js")!!}
+                                            {!!Html::script("dist/sweetalert-dev.js")!!}
 
-        {!!Html::script("dist/sweetalert-dev.js")!!}
+                                            {!!Html::style("style.css")!!}
 
-        {!!Html::style("style.css")!!}
+                                            {!!Html::style('http://fonts.googleapis.com/css?family=Oxygen:400,300,700')!!}
 
-        {!!Html::style('http://fonts.googleapis.com/css?family=Oxygen:400,300,700')!!}
+                                            {!!Html::style('http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,900,700,700italic,900italic')!!}
 
-        {!!Html::style('http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,900,700,700italic,900italic')!!}
+                                            {!!Html::style('http://fonts.googleapis.com/css?family=Niconne')!!}
 
-        {!!Html::style('http://fonts.googleapis.com/css?family=Niconne')!!}
 
 
+                                        </head>
+                                        <body>
+                                              <header id="myHeader">
+                                                        <div class="headbar">
 
+                                                          <div class="fullbg">
 
-    </head>
-    <body>
-          <header id="myHeader">
-                    <div class="headbar">
+                                                              <div class="row">
 
-                      <div class="fullbg">
+                                                                   <div class="col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-8">
 
-                          <div class="row">
+                                                                       <h1 class="logo">E-Pedido</h1>
 
-                               <div class="col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-8">
+                                                                  </div>
 
-                                   <h1 class="logo">E-Pedido</h1>
+                                                                   <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
 
-                              </div>
+                                                                       <nav class="navi navbar navbar-default" role="navigation">
 
-                               <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                                                                             <div class="navbar-header">
 
-                                   <nav class="navi navbar navbar-default" role="navigation"> 
+                                                                                   <button type="button" class="navbar-toggle collapsed navb" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
-                                         <div class="navbar-header">
+                                                                             </div>
 
-                                               <button type="button" class="navbar-toggle collapsed navb" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                                                                            <div class="menubox collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                                         </div>
+                                                                                   <ul class="nav navbar-nav menu">
 
-                                        <div class="menubox collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                                                                          <li><a href="#myHeader">Home</a></li>
 
-                                               <ul class="nav navbar-nav menu">
+                                                                                          <li><a href="#menu">Menu</a></li>
 
-                                                      <li><a href="#myHeader">Home</a></li>
+                                                                                          <li><a href="#tituloReserva">Reservar Mesa</a></li>
 
-                                                      <li><a href="#menu">Menu</a></li>
+                                                                                          <li><a href="#tituloContacte">Contacte Nos</a></li>
 
-                                                      <li><a href="#tituloReserva">Reservar Mesa</a></li>
+                                                                                  </ul>
 
-                                                      <li><a href="#tituloContacte">Contacte Nos</a></li>
+                                                                             </div>
 
-                                              </ul>
+                                                                        </nav>
 
-                                         </div>
+                                                                  </div>
 
-                                    </nav>
+                                                              <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
 
-                              </div>
+                                                                <h2>Bem Vindo</h2>
 
-                          <div class="col-md-8 col-md-offset-2 col-xs-12 text-center text-banner">
+                                                                <p id="subtituloHeader">Encontre aqui as melhores pizzas da cidade</p>
 
-                            <h2>Bem Vindo</h2>
+                                                              </div>
 
-                            <p id="subtituloHeader">Encontre aqui as melhores pizzas da cidade</p>
+                                                            </div>
 
-                          </div>
+                                                        </div>
 
-                        </div>
+                                                   </div>
 
-                    </div>
+                                            </header>
 
-               </div>
 
-        </header>
 
-         
-                
 
-               {!! session_start(); !!}
-            <section class="cardapio">
-    
-                <div class="container">
-                    <div class="row">
-                    <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-2">
-                            <h1 id="menu" >Menu</h1>
-                                </div>
-                                </div>
-                                     <div class="col-md-12 menu-list ">
-                                        <div id="meuMenu">
-                                        <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#home">Pizzas</a></li>
 
-                                               <li><a data-toggle="tab" href="#menu1">Bebidas</a></li>
+                                                <section class="cardapio">
 
-                                               <li><a data-toggle="tab" href="#menu2">Pratos</a></li>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                        <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-2">
+                                                                <h1 id="menu" >Menu</h1>
+                                                                    </div>
+                                                                    </div>
+                                                                         <div class="col-md-12 menu-list ">
+                                                                            <div id="meuMenu">
+                                                                            <ul class="nav nav-tabs">
+                                                                            <li class="active"><a data-toggle="tab" href="#home">Pizzas</a></li>
 
-                                               <li><a data-toggle="tab" href="#menu3">Burguers</a></li>
-                                        </ul>
+                                                                                   <li><a data-toggle="tab" href="#menu1">Bebidas</a></li>
 
-                          <div class="tab-content">
-                                             <div id="home" class="tab-pane fade in active">
-                                               <ul class="listaProdutos">
+                                                                                   <li><a data-toggle="tab" href="#menu2">Pratos</a></li>
 
+                                                                                   <li><a data-toggle="tab" href="#menu3">Burguers</a></li>
+                                                                            </ul>
 
-                                                     @foreach($categorias as $Categoria)
-                                                           @if($Categoria->descricao == "Pizzas")
+                                                              <div class="tab-content">
+                                                                                 <div id="home" class="tab-pane fade in active">
+                                                                                   <ul class="listaProdutos">
 
-                                              @foreach($produtos as $Produtos)
-                                          @if($Produtos->categoria_id == $Categoria->id)
 
-                                         <li>
-                                       
+                                                                                    @foreach($categorias as $Categoria)
+                                                                                     @if($Categoria->descricao == "Pizzas")
 
-                                        {!!Form::open(['route'=>'cart.store', 'method'=>'POST'])!!}
-                                       
-                                         <?php $_SESSION['id'] = $Produtos->id ?>
-                                             <p class="menuname">{!! $Produtos->nomeProduto  !!}</p>  
-                                            
-                                             <p class="price"> {!! $Produtos->preco !!} Mtn
-                                              <button type="input" class="addCart glyphicon glyphicon-plus">    
+                                                                                  @foreach($produtos as $Produtos)
+                                                                              @if($Produtos->categoria_id == $Categoria->id)
 
-                                               </button>
-                                              </p>
-                                           
-                                           {!!Form::close()!!}                       
-                                        </li>
-                                                                  
-                                        @endif
+                                                                             <li>
 
-                                     @endforeach
+                                                                                 <p class="menuname">{!! $Produtos->nomeProduto  !!}</p>
 
-                                    @endif
-                                @endforeach
-                                  
+                                                                                 <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                         
-                                                      </ul>
+                                                                                         <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
+                                                                                  </p>
 
-                                                    </div>
 
-                                                     <div id="menu1" class="tab-pane fade">
+                                                                            </li>
 
+                                                                            @endif
 
-                                                      <ul class="listaProdutos">
-                                                      
-                                                       @foreach($categorias as $Categoria)
-                                                           @if($Categoria->descricao == "Bebidas")
+                                                                         @endforeach
 
-                                                               @foreach($produtos as $Produtos)
-                                                                 @if($Produtos->categoria_id == $Categoria->id)
-                                                                      <li>
+                                                                        @endif
+                                                                    @endforeach
 
 
-                                                                  <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
 
-                                                <p class="price"> {!! $Produtos->preco !!} Mtn
+                                                                                          </ul>
 
-                                                 <button type="input" class="addCart glyphicon glyphicon-plus"></button>
+                                                                                        </div>
 
-                                                </p>
+                                                                                         <div id="menu1" class="tab-pane fade">
 
-                                                                  </li>
-                                                                  
-                                                                 @endif
 
-                                                                 @endforeach
+                                                                                          <ul class="listaProdutos">
 
-                                                                 @endif
-                                                      @endforeach
-                                                     
-                                            </ul>
+                                                                                           @foreach($categorias as $Categoria)
+                                                                                               @if($Categoria->descricao == "Bebidas")
 
-                                          </div>
+                                                                                                   @foreach($produtos as $Produtos)
+                                                                                                         @if($Produtos->categoria_id == $Categoria->id)
+                                                                                                                <li>
 
+                                                                                                                     <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
 
+                                                                                                                      <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                    <div id="menu2" class="tab-pane fade">
+                                                                                                                          <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
 
+                                                                                                                      </p>
 
-                                                      <ul class="listaProdutos">
-                                                      
-                                                       @foreach($categorias as $Categoria)
-                                                           @if($Categoria->descricao == "Pratos")
+                                                                                                                  </li>
 
-                                                               @foreach($produtos as $Produtos)
-                                                                 @if($Produtos->categoria_id == $Categoria->id)
-                                                                      <li>
+                                                                                                         @endif
 
+                                                                                                     @endforeach
 
-                                             <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
+                                                                                                     @endif
+                                                                                          @endforeach
 
-                                             <p class="price"> {!! $Produtos->preco !!} Mtn
+                                                                                </ul>
 
-                                              <button type="input" class="addCart glyphicon glyphicon-plus"></button>
+                                                                              </div>
 
-                                             </p>
 
-                                                                  </li>
-                                                                  
-                                                                 @endif
 
-                                                                 @endforeach
+                                                                                        <div id="menu2" class="tab-pane fade">
 
-                                                                 @endif
-                                                      @endforeach
-                                                     
-                                            </ul>
 
-                                          </div>
+                                                                                          <ul class="listaProdutos">
 
-                                          <div id="menu3" class="tab-pane fade">
+                                                                                           @foreach($categorias as $Categoria)
+                                                                                               @if($Categoria->descricao == "Pratos")
 
-                                            <ul class="listaProdutos">
+                                                                                                   @foreach($produtos as $Produtos)
+                                                                                                     @if($Produtos->categoria_id == $Categoria->id)
+                                                                                                       <li>
 
-                                                     @foreach($categorias as $Categoria)
-                                                           @if($Categoria->descricao == "Burguers")
+                                                                                                           <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
 
-                                                               @foreach($produtos as $Produtos)
-                                                                 @if($Produtos->categoria_id == $Categoria->id)
-                                                                      <li>
+                                                                                                           <p class="price"> {!! $Produtos->preco !!} Mtn
 
+                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
 
-                                                      <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
+                                                                                                           </p>
+                                                                                                      </li>
 
-                                                     <p class="price"> {!! $Produtos->preco !!} Mtn
+                                                                                                     @endif
 
-                                                      <button type="input" class="addCart glyphicon glyphicon-plus"></button>
+                                                                                                     @endforeach
 
-                                                     </p>
+                                                                                                     @endif
+                                                                                          @endforeach
 
-                                                                  </li>
-                                                                  
-                                                                 @endif
+                                                                                </ul>
 
-                                                                 @endforeach
+                                                                              </div>
 
-                                                                 @endif
-                                                      @endforeach
+                                                                              <div id="menu3" class="tab-pane fade">
 
-                                            </ul>
+                                                                                <ul class="listaProdutos">
 
-                                          </div>
+                                                                                         @foreach($categorias as $Categoria)
+                                                                                               @if($Categoria->descricao == "Burguers")
 
-                                        </div>
+                                                                                                   @foreach($produtos as $Produtos)
+                                                                                                     @if($Produtos->categoria_id == $Categoria->id)
+                                                                                                       <li>
 
-                                      </div> 
+                                                                                                            <p class="menuname">{!! $Produtos->nomeProduto !!}</p>
 
-                                    </div>
+                                                                                                           <p class="price"> {!! $Produtos->preco !!} Mtn
 
+                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
 
+                                                                                                           </p>
 
-                                </div>
+                                                                                                      </li>
 
-                                 <div>
-                                   <div class="row">
-                                    <div class="col-md-6">
-                                        <h1 id="tituloMeuPedido">Meu Pedido</h1>
+                                                                                                     @endif
 
-                                        <div class="col-md-10 col-md-offset-2" id="meuPedido">
-                                          
-                                        <!-- Cart -->
+                                                                                                     @endforeach
 
+                                                                                                     @endif
+                                                                                          @endforeach
 
+                                                                                </ul>
 
+                                                                              </div>
 
-                                     </div>
-                                        <div class="forming col-md-2 col-md-offset-4">
+                                                                            </div>
 
-                                                    <button id="btPedido" type="submit" class="btn">Fazer Pedido!</button>
+                                                                          </div>
 
-                                                  </div>
-                                   </div>
-                                </div>
-                              
-                                     
-                                 
+                                                                        </div>
 
-                              </div>
 
-                       </div>
 
-                       
+                                                                    </div>
 
-                       </section>
+                                                                     <div>
+                                                                       <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h1 id="tituloMeuPedido">Meu Pedido</h1>
 
-             <!-- Pizzas que aparecem em destaque -->
+                                                                            <div class="col-md-10 col-md-offset-2  tab-content" id="meuPedido">
 
-             <section class="destaque" style="margin-top: 30px;">
-                    <div id="rowReserva" class="row" style=" background: rgba(1,1,1,.7);">
-                         <div class="col-md-offset-2">
-                            <ul class="listaUl">
-          
-                                 <li class="col-md-3 listaDestaque">
-                                    <div class="team-item thumbnail">
-                                        <a href="" class="thumb-info team">
-                                             <img alt="" height="270" src="images/nobre.jpg">
-                                            <span class="thumb-info-title">
-                                                <span class="thumb-info-inner">Pizzas Em Promoção</span>
-                                            </span>
-                                        </a>
-                                        <div class="thumb-info-caption">
-                                            <p class="txtItems">
-                                                4 Estaçoes<br>
-                                                Alcatra<br>
-                                                Americana<br>
-                                                Mexicana<br>
-                                                Vegetariana<br>
-                                            </p>
-                                          
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <li class="col-md-3 listaDestaque" >
-                                    <div class="team-item thumbnail">
-                                        <a href="" class="thumb-info team">
-                                            <img alt="" height="270" src="images/mussarela.jpg">
-                                            <span class="thumb-info-title">
-                                                <span class="thumb-info-inner">Pizzas Tradicionais</span>
-                                        </a>
-                                        <div class="thumb-info-caption">
-                                            <p class="txtItems">
-                                                Frango<br>
-                                                Marguerita<br>
-                                                Milho Verde<br>
-                                                Napolitana<br>
-                                                Palmito<br>
-                                                Peperoni<br>
-                                                Presunto<br>
-                                            </p>
+                                                                            <!-- Cart -->
 
 
-                                        
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-3 listaDestaque">
-                                    <div class="team-item thumbnail">
-                                        <a href="" class="thumb-info team">
-                                            <img alt="" height="270" src="images/especiais.jpg">
-                                            <span class="thumb-info-title">
-                                                <span class="thumb-info-inner">Pizzas Especiais</span>
-                                            </span>
-                                        </a>
-                                        <div class="thumb-info-caption">
-                                            <p class="txtItems">
-                                                4 Queijos<br>
-                                                Atum<br>
-                                                Canadense<br>
-                                                Champignon Especial<br>
-                                                Frango e Queijo Cheddar<br>
-                                                Pepperoni e queijo<br>
-                                                Portuguesa<br>
-                                                Tomates Secos<br>
-                                            </p>
-                                          
-                                        </div>
-                                    </div>
-                                </li>                     
-                            </ul>
-                          </div>
-                         </div>
-                       </section>
-                      
-                         <!-- Reservar Mesa -->
+                                                                                <ul class="listaItems">
 
-                              <div class="row" style="background-color: #fbf1d1"> 
-                                   <section class="reserva col-md-10 col-md-offset-1">
-                                       <p id="tituloReserva">Reserve a sua mesa!</p>
-                                             
-                                          {!!Form::open(['route'=>'reserva.store', 'method'=>'POST'])!!}
+                                                                                            <?php $items = \App\Cart::all() ?>
 
-                                               <div class="form">                                        
+                                                                                            @foreach($items as $Cart)
 
-                                        <div class="col-md-10 col-md-offset-1 forming">
+                                                                                                    <li>
 
-                                              <form role="form" name="form1">
 
-                                                <div class="col-md-6 col-sm-6">
+                                                                                                       <p class="menuname">{!! $Cart->quant !!}  {!! $Cart->nomeProd !!}</p>
 
-                                                  <div class="form-group">
+                                                                                                        <p class="price"> {!! $Cart->price !!} Mtn
 
-                                                    {!!Form::text('nomeCliente',null,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
+                                                                                                            <a class="addCart glyphicon glyphicon-chevron-left" href="remove/{{ $Cart->id }}"></a>
 
-                                                  </div>
+                                                                                                        </p>
 
-                                                  <div class="form-group">
+                                                                                                    </li>
 
-                                                    {!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
 
-                                                  </div>
 
-                                                  <div class="form-group">
+                                                                                            @endforeach
 
-                                                    {!!Form::text('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone'])!!}
 
-                                                  </div>
+                                                                                </ul>
 
-                                                </div>
+                                                                                {{--Botao fazer Reserva--}}
 
-                                                <div class="col-md-6 col-sm-6">
+                                                                         </div>
+                                                                            <div class="forming col-md-2 col-md-offset-4">
 
-                                                  <div class="form-group">
+                                                                                {!!Form::open(['route'=>'pedido.store', 'method'=>'POST'])!!}
+                                                                              <button id="btPedido" type="submit" class="btn">Fazer Pedido!</button>
 
-                                                    {!!Form::date('data',null,['class'=>'form-control'])!!}
+                                                                                {!! Form::close() !!}
+                                                                           </div>
+                                                                       </div>
+                                                                    </div>
 
-                                                  </div>
 
-                                                  <div class="form-group">
 
-                                                   {!!Form::time('hora',null,['class'=>'form-control'])!!}
 
-                                                  </div>
+                                                                  </div>
 
-                                                  <div class="form-group">
+                                                           </div>
 
-                                                    {!!Form::number('nrAcompanhantes',null,['class'=>'form-control','placeholder'=>'Digite o numero de acompanhantes'])!!}
+                                                        </div>
 
+                                                </section>
 
-                                                  </div>
+                                                 <!-- Pizzas que aparecem em destaque -->
 
-                                                </div>
+                                                 <section class="destaque" style="margin-top: 30px;">
+                                                        <div id="rowReserva" class="row" style=" background: rgba(1,1,1,.7);">
+                                                             <div class="col-md-offset-2">
+                                                                <ul class="listaUl">
 
-                                                <div class="col-md-12 col-sm-12">
+                                                                     <li class="col-md-3 listaDestaque">
+                                                                        <div class="team-item thumbnail">
+                                                                            <a href="" class="thumb-info team">
+                                                                                 <img alt="" height="270" src="images/nobre.jpg">
+                                                                                <span class="thumb-info-title">
+                                                                                    <span class="thumb-info-inner">Pizzas Em Promoção</span>
+                                                                                </span>
+                                                                            </a>
+                                                                            <div class="thumb-info-caption">
+                                                                                <p class="txtItems">
+                                                                                    4 Estaçoes<br>
+                                                                                    Alcatra<br>
+                                                                                    Americana<br>
+                                                                                    Mexicana<br>
+                                                                                    Vegetariana<br>
+                                                                                </p>
 
-                                                  <div class="form-group">
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
 
-                                                    {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'8','placeholder'=>'Observacoes e preferencias'])!!}
+                                                                    <li class="col-md-3 listaDestaque" >
+                                                                        <div class="team-item thumbnail">
+                                                                            <a href="" class="thumb-info team">
+                                                                                <img alt="" height="270" src="images/mussarela.jpg">
+                                                                                <span class="thumb-info-title">
+                                                                                    <span class="thumb-info-inner">Pizzas Tradicionais</span>
+                                                                            </a>
+                                                                            <div class="thumb-info-caption">
+                                                                                <p class="txtItems">
+                                                                                    Frango<br>
+                                                                                    Marguerita<br>
+                                                                                    Napolitana<br>
+                                                                                    Peperoni<br>
+                                                                                    Presunto<br>
+                                                                                </p>
 
-                                                  </div>
 
-                                                  <div class="text-center">
 
-                                                    <button type="submit" class="btn">Reservar</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="col-md-3 listaDestaque">
+                                                                        <div class="team-item thumbnail">
+                                                                            <a href="" class="thumb-info team">
+                                                                                <img alt="" height="270" src="images/especiais.jpg">
+                                                                                <span class="thumb-info-title">
+                                                                                    <span class="thumb-info-inner">Pizzas Especiais</span>
+                                                                                </span>
+                                                                            </a>
+                                                                            <div class="thumb-info-caption">
+                                                                                <p class="txtItems">
+                                                                                    4 Queijos<br>
+                                                                                    Atum<br>
+                                                                                    Pepperoni e queijo<br>
+                                                                                    Portuguesa<br>
+                                                                                    Tomates Secos<br>
+                                                                                </p>
 
-                                                  </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                              </div>
+                                                             </div>
+                                                           </section>
 
-                                                   @if($errors->any())
-                                                      <div class="alert alert-danger">
-                                                          @foreach($errors->all() as $error)
-                                                              <p>{{ $error }}</p>
-                                                          @endforeach
+                                                             <!-- Reservar Mesa -->
+
+                                                                  <div class="row" style="background-color: #fbf1d1">
+                                                                       <section class="reserva col-md-10 col-md-offset-1">
+                                                                           <p id="tituloReserva">Reserve a sua mesa!</p>
+
+                                                                              {!!Form::open(['route'=>'reserva.store', 'method'=>'POST'])!!}
+
+                                                                                   <div class="form">
+
+                                                                            <div class="col-md-10 col-md-offset-1 forming">
+
+                                                                                  <form role="form" name="form1">
+
+                                                                                    <div class="col-md-6 col-sm-6">
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::text('nomeCliente',null,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
+
+                                                                                      </div>
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
+
+                                                                                      </div>
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::text('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone'])!!}
+
+                                                                                      </div>
+
+                                                                                    </div>
+
+                                                                                    <div class="col-md-6 col-sm-6">
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::date('data',null,['class'=>'form-control'])!!}
+
+                                                                                      </div>
+
+                                                                                      <div class="form-group">
+
+                                                                                       {!!Form::time('hora',null,['class'=>'form-control'])!!}
+
+                                                                                      </div>
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::number('nrAcompanhantes',null,['class'=>'form-control','placeholder'=>'Digite o numero de acompanhantes'])!!}
+
+
+                                                                                      </div>
+
+                                                                                    </div>
+
+                                                                                    <div class="col-md-12 col-sm-12">
+
+                                                                                      <div class="form-group">
+
+                                                                                        {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'8','placeholder'=>'Observacoes e preferencias'])!!}
+
+                                                                                      </div>
+
+                                                                                      <div class="text-center">
+
+                                                                                        <button type="submit" class="btn">Reservar</button>
+
+                                                                                      </div>
+
+                                                                                      <!-- Div para mostrar erro na validacao de campos  -->
+
+                                                                                       @if($errors->any())
+                                                                                          <div class="alert alert-danger">
+                                                                                              @foreach($errors->all() as $error)
+                                                                                                  <p>{{ $error }}</p>
+                                                                                              @endforeach
+                                                                                          </div>
+                                                                                      @endif
+
+                                                                                    </div>
+
+                                                                                  </form>
+
+                                                                                </div>
+
+                                                                              {!!Form::close()!!}
+                                                                           </div>
+
+                                                                        </section>
+                                                                  </div>
+
+
+
+                                                                  <!-- Contacte Nos -->
+
+                                                                   <div class="row" style="background: rgba(1,1,1,.95);">
+
+                                                                        <div class="col-md-11 col-md-offset-1 col-sm-10 col-sm-offset-1">
+
+                                                                            <h3 id="tituloContacte">Contacte Nos</h3>
+
+                                                                        </div>
+
+                                                                          {!!Form::open(['route'=>'comentario.store', 'method'=>'POST'])!!}
+
+                                                                         <div class="form">
+
+
+                                                                             <div class="col-md-7 col-md-offset-1">
+
+
+                                                                                  <form role="form" id="form2">
+
+                                                                                      <div class="col-md-5">
+
+                                                                                          <div class="form-group contacte">
+
+                                                                                               {!!Form::text('nome',null,['class'=>'form-control',
+                                                                                               'placeholder'=>'Digite o seu nome'])!!}
+
+                                                                                              </div>
+
+                                                                                              <div class="form-group contacte">
+
+                                                                                                {!!Form::email('email',null,['class'=>'form-control',
+                                                                                                'placeholder'=>'Digite o seu email'])!!}
+
+                                                                                              </div>
+
+                                                                                        </div>
+
+                                                                              <div class="col-md-5">
+
+                                                                                   <div class="form-group contacte">
+
+                                                                                       {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'3', 'id'=>'txtComentario', 'placeholder'=>'Deixe o seu comentario'])!!}
+
+                                                                                  </div>
+
+                                                                              </div>
+
+                                                                                   <div class="col-md-1">
+                                                                                         <div class="text-center">
+
+                                                                                             <button type="submit" id="btEnviar" class="btn">Enviar</button>
+
+                                                                                        </div>
+                                                                                  </div>
+
+                                                                         </form>
+                                                                        {!!Form::close()!!}
+
+                                                                      </div>
+
+                                                                             <div class="row">
+
+                                                                                       <div class="col-md-2 col-md-offset-0 socialNet">
+                                                                                      <a href=""> <img class="social" alt="facebook" src="images/facebook.png"> </a>
+                                                                                      <a href=""> <img class="social" alt="facebook" src="images/twitter.png"> </a>
+                                                                                      <a href=""> <img class="social" alt="facebook" src="images/google.png"> </a>
+                                                                                      </div>
+
+                                                                              </div>
+
+
+                                                                        </div>
+
                                                       </div>
-                                                  @endif
-
-                                                </div>
-
-                                              </form>
-
-                                            </div>   
-
-                                {!!Form::close()!!}   
-
-                                    </section>
-                              </div>
-                      
 
 
-                              <!-- Contacte Nos -->
 
-                               <div class="row" style="background: rgba(1,1,1,.95);">
+                                                <!-- Footer -->
+                                            <footer class="container-fluid bg-4 text-center">
+                                                <a class="up-arrow" href="#myHeader" data-toggle="tooltip" title="TOPO">
+                                                    <span class="glyphicon glyphicon-chevron-up"></span><br>
 
-                                            <div class="col-md-11 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                                                </a>
+                                                <p> &copy 2016 - WebTraining - Grupo 6 </p>
 
-                                              <h3 id="tituloContacte">Contacte Nos</h3>
+                                                <!--  -->
+                                            </footer>
 
-                                              </div>
-
-                                              {!!Form::open(['route'=>'comentario.store', 'method'=>'POST'])!!}
-
-                                               <div class="form">
-
-                                               
-                                            <div class="col-md-7 col-md-offset-1">
+                                        </body>
 
 
-                                               <form role="form" id="form2">
 
-                                              <div class="col-md-5">
+                                    <!-- Mensagens de alerta com SweetAlert -->
 
-                                                  <div class="form-group contacte">
+                                        <script>
+                                          @if(notify()->ready())
+                                            @if(notify()->message()=="Obrigado pelo seu comentario!")
+                                              swal({
+                                                title: "Obrigado pelo seu comentario!",
+                                                text: "Comentario enviado com sucesso",
+                                                type: 'success',
+                                              animation: "slide-from-top",
+                                              showCancelButton: true,
+                                              confirmButtonColor: "#DD6B55",
+                                              confirmButtonText: "Yes, delete it!",
+                                              cancelButtonText: "No, cancel plx!",
+                                              closeOnConfirm: false,
+                                              closeOnCancel: false
+                                            });
+                                              @endif
 
-                                                    {!!Form::text('nome',null,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
-
-                                                  </div>
-
-                                                  <div class="form-group contacte">
-
-                                                    {!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
-
-                                                  </div>
-
-                                               </div>  
-
-                                                 <div class="col-md-5">
-                                                       
-                                                       <div class="form-group contacte">
-
-                                                         {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'3', 'id'=>'txtComentario', 'placeholder'=>'Deixe o seu comentario'])!!}
-
-                                                       </div>
-
-                                                  </div> 
-
-                                                  <div class="col-md-1">
-                                                       <div class="text-center">
-
-                                                         <button type="submit" id="btEnviar" class="btn">Enviar</button>
-
-                                                       </div>
-                                                  </div>
-
-                                                  </form>
-                                                  {!!Form::close()!!} 
-
-                                              </div>
-
-                                         <div class="row">
-                                                  
-                                                   <div class="col-md-2 col-md-offset-0 socialNet">
-                                                  <a href=""> <img class="social" alt="facebook" src="images/facebook.png"> </a>
-                                                  <a href=""> <img class="social" alt="facebook" src="images/twitter.png"> </a>
-                                                  <a href=""> <img class="social" alt="facebook" src="images/google.png"> </a>    
-                                                  </div>
-
-                                          </div>
+                                              @if(notify()->message()=="reserva criada")
+                                              swal({
+                                                title: "Reserva efectuada com sucesso!",
+                                                text: "Deseja fazer pedidos agora?",
+                                                type: 'success',
+                                                  animation: "slide-from-top",
+                                                  showCancelButton: true,
+                                                  confirmButtonColor: "#DD6B55",
+                                                  confirmButtonText: "Nao!",
+                                                  cancelButtonText: "Sim, fazer pedido",
+                                                  closeOnConfirm: false,
+                                                  closeOnCancel: true
+                                            },
+                                                      function(isConfirm){
+                                                          if (isConfirm) {
+                                                              swal("Obrigado pela preferencia", "Reserva terminada", "success");
+                                                          }else{
+                                                            document.location.href = "restaurante#tituloMeuPedido";
+                                                          }
+                                                      });
+                                              @endif
 
 
-                                            </div>
-
-                                          </div>
-    
-
-            
-            <!-- Footer -->
-        <footer class="container-fluid bg-4 text-center">
-            <a class="up-arrow" href="#myHeader" data-toggle="tooltip" title="TOPO">
-                <span class="glyphicon glyphicon-chevron-up"></span><br>  
-
-            </a>
-            <p> &copy 2016 - WebTraining - Grupo 6 </p>
-
-            <!--  -->
-        </footer>
-        
-    </body>
+                                            @endif
+                                        </script>
 
 
-    <script>
-      @if(notify()->ready())
-        @if(notify()->message()=="Obrigado pelo seu comentario!")
-          swal({
-            title: "Obrigado pelo seu comentario!",
-            text: "Comentario enviado com sucesso",
-            type: 'success'
-        });
-          @endif
 
-          @if(notify()->message()=="reserva criada")
-          swal({
-            title: "Obrigado pela preferencia!",
-            text: "Reserva efectuada com sucesso",
-            type: 'success'
-        });
-          @endif
+                                        <!-- Animated scroll da pagina -->
+
+                                         <script>
+                                                $(document).ready(function () {
+                                                    // Add smooth scrolling to all links in navbar + footer link
+                                                    $(".navbar a, footer a").on('click', function (event) {
+
+                                                        // Prevent default anchor click behavior
+                                                        event.preventDefault();
+
+                                                        // Store hash
+                                                        var hash = this.hash;
+
+                                                        // Using jQuery's animate() method to add smooth page scroll
+                                                        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                                                        $('html, body').animate({
+                                                            scrollTop: $(hash).offset().top
+                                                        }, 1000, function () {
+
+                                                            // Add hash (#) to URL when done scrolling (default click behavior)
+                                                            window.location.hash = hash;
+                                                        });
+                                                    });
+
+                                                    $(window).scroll(function () {
+                                                        $(".slideanim").each(function () {
+                                                            var pos = $(this).offset().top;
+
+                                                            var winTop = $(window).scrollTop();
+                                                            if (pos < winTop + 600) {
+                                                                $(this).addClass("slide");
+                                                            }
+                                                        });
+                                                    });
+                                                });
+                                            </script>
+
+                                        <!--     FIM! -->
 
 
-        @endif  
-    </script>
-
-
-    
-     <script>
-            $(document).ready(function () {
-                // Add smooth scrolling to all links in navbar + footer link
-                $(".navbar a, footer a").on('click', function (event) {
-
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 1000, function () {
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                });
-
-                $(window).scroll(function () {
-                    $(".slideanim").each(function () {
-                        var pos = $(this).offset().top;
-
-                        var winTop = $(window).scrollTop();
-                        if (pos < winTop + 600) {
-                            $(this).addClass("slide");
-                        }
-                    });
-                });
-            });
-        </script>
-    
-        
-</html>
+                                    </html>

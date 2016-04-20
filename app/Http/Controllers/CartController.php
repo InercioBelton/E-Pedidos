@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\CartRequest;
+
+use App\Cart;
 
 class CartController extends Controller
 {
@@ -18,25 +20,24 @@ class CartController extends Controller
 					public function create(){
 					}
 
-					public function store(){
+					public function store(CartRequest $request){
 
-					session_start();
-                    $id = $_SESSION['id'];	
+						$id = $_GET['cod'];
 
 				    $produto = \App\Produtos::find($id);
 
-                    echo $id;
 
-                    $item = [
+                    $item = array();
 
-                    'id' => null,
-                    'descricao' => $produto->nomeProduto,
-                    'preco' => $produto->preco,
-                    'quantidade' => '1',
-                              ];
 
-                     \App\Cart::create($item);
-                     return redirect();
+                     \App\Cart::create([
+
+						 'id' => null,
+						 'nomeProd' => $produto->nomeProduto,
+						 'price' => $produto->preco,
+						 'quant' => '1',
+					 ]);
+						return redirect()->away('/restaurante#menu');
 
 					}
 
@@ -53,8 +54,12 @@ class CartController extends Controller
 					}
 
 					public function destroy($id){
-						
 
+						\App\Cart::truncate();
+
+					}
+
+					public function fazerPedido(){
 
 					}
 
