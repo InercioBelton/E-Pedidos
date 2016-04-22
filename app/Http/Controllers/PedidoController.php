@@ -17,6 +17,7 @@ class PedidoController extends Controller
 
     public function store(Request $request){
             \App\Cart::truncate();
+        notify()->flash('pedido','success');
         return redirect()->away('/restaurante#menu');
     }
 

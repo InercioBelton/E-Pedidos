@@ -190,6 +190,7 @@
 
 
 
+
                                                                                         <div id="menu2" class="tab-pane fade">
 
 
@@ -282,7 +283,6 @@
 
                                                                                                     <li>
 
-
                                                                                                        <p class="menuname">{!! $Cart->quant !!}  {!! $Cart->nomeProd !!}</p>
 
                                                                                                         <p class="price"> {!! $Cart->price !!} Mtn
@@ -303,14 +303,37 @@
                                                                                 {{--Botao fazer Reserva--}}
 
                                                                          </div>
-                                                                            <div class="forming col-md-2 col-md-offset-4">
+                                                                            <div class="row">
+                                                                            <div id="fazerReserva" class="forming col-md-12 col-md-offset-2">
 
+
+                                                                                <?php $items = \App\Cart::all();
+                                                                                $total = 0; ?>
+
+
+
+                                                                                @foreach($items as $Cart)
+                                                                                        <?php
+                                                                                    $preco = $Cart->price;
+
+                                                                                     $total = $total + $preco; ?>
+
+                                                                                @endforeach
+
+
+                                                                                <div class="col-md-5 precoTotal">
+                                                                                <h3><span id="corTotal">Total: </span>{!! $total  !!} Mts</h3>
+                                                                                </div>
+
+                                                                                <div class="col-md-2">
                                                                                 {!!Form::open(['route'=>'pedido.store', 'method'=>'POST'])!!}
                                                                               <button id="btPedido" type="submit" class="btn">Fazer Pedido!</button>
 
                                                                                 {!! Form::close() !!}
                                                                            </div>
+                                                                                </div>
                                                                        </div>
+                                                                            </div>
                                                                     </div>
 
 
@@ -416,12 +439,12 @@
 
                                                                                       <div class="form-group">
 
-                                                                                          {!!Form::text('nomeCliente',$nome,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
+                                                                                          {!!Form::text('nomeCliente',$nome,['class'=>'form-control','placeholder'=>'Digite o seu nome', 'readonly' => 'true'])!!}
 
                                                                                       </div>
 
                                                                                       <div class="form-group">
-                                                                                          {!!Form::text('email',$email,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
+                                                                                          {!!Form::text('email',$email,['class'=>'form-control','placeholder'=>'Digite o seu email', 'readonly' => 'true'])!!}
 
                                                                                       </div>
 
@@ -519,14 +542,14 @@
                                                                                           <div class="form-group contacte">
 
                                                                                                {!!Form::text('nome',$nome,['class'=>'form-control',
-                                                                                               'placeholder'=>'Digite o seu nome'])!!}
+                                                                                               'placeholder'=>'Digite o seu nome', 'readonly' => 'true'])!!}
 
                                                                                               </div>
 
                                                                                               <div class="form-group contacte">
 
-                                                                                                {!!Form::email('email',null,['class'=>'form-control',
-                                                                                                'placeholder'=>'Digite o seu email'])!!}
+                                                                                                {!!Form::email('email',$email,['class'=>'form-control',
+                                                                                                'placeholder'=>'Digite o seu email', 'readonly' => 'true'])!!}
 
                                                                                               </div>
 
@@ -558,9 +581,9 @@
                                                                              <div class="row">
 
                                                                                        <div class="col-md-2 col-md-offset-0 socialNet">
-                                                                                      <a href=""> <img class="social" alt="facebook" src="images/facebook.png"> </a>
-                                                                                      <a href=""> <img class="social" alt="facebook" src="images/twitter.png"> </a>
-                                                                                      <a href=""> <img class="social" alt="facebook" src="images/google.png"> </a>
+                                                                                      <a href="https://www.facebook.com/inercio.belton" target="_blank"> <img class="social" alt="facebook" src="images/facebook.png"> </a>
+                                                                                      <a href="https://www.twitter.com/inercioB" target="_blank"> <img class="social" alt="twitter" src="images/twitter.png"> </a>
+                                                                                      <a href=""> <img class="social" alt="Google Plus" src="images/google.png"> </a>
                                                                                       </div>
 
                                                                               </div>
@@ -574,7 +597,7 @@
 
                                                 <!-- Footer -->
                                             <footer class="container-fluid bg-4 text-center">
-                                                <a class="up-arrow" href="#myHeader" data-toggle="tooltip" title="TOPO">
+                                                <a class="up-arrow" href="#myHeader" data-toggle="tooltip" title="Ir ao topo">
                                                     <span class="glyphicon glyphicon-chevron-up"></span><br>
 
                                                 </a>
@@ -603,8 +626,26 @@
                                             });
                                               @endif
 
-                                              @if(notify()->message()=="reserva criada")
-                                              swal({
+                                            @if(notify()->message()=="pedido")
+                                            swal({
+                                                  title: "Accao indisponivel... por enquanto!",
+                                                  text: "Esta accao devera mostrar um pequeno form com detalhes do pedido," +
+                                                  "como por exemplo a especificacao da hora que o cliente deseja ter o pedido pronto e algumas observacoes/preferencias do cliente, caso existam.<br>" +
+                                                  "(para ja os items do pedido serao iliminados) ",
+                                                  type: 'warning',
+
+                                                  confirmButtonColor: "#f8bd08",
+                                                  closeOnConfirm: false,
+                                                  closeOnCancel: false,
+                                                  html: true
+                                              });
+
+
+                                          @endif
+
+
+                                          @if(notify()->message()=="rexserva criada")
+                                          swal({
                                                 title: "Reserva efectuada com sucesso!",
                                                 text: "Deseja fazer pedidos agora?",
                                                 type: 'success',
@@ -669,7 +710,17 @@
                                                 });
                                             </script>
 
-                                        <!--     FIM! -->
+                                        <!--
+
+
+                                        document.getElementById('id').innerHTML = 'Your content';
+
+
+                                        FIM! -->
+
+
+
+
 
 
                                     </html>

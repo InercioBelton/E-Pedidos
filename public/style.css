@@ -51,6 +51,19 @@ header{
     margin-top: 10px;
 }
 
+#checkRemember{
+    color: whitesmoke;
+    opacity: .8;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: -5px;
+    font-family:  'Niconne', cursive;
+}
+
+.checkbox{
+    margin-left: 20px;
+}
+
 #btCancelar{
     text-decoration: none;
     color: whitesmoke;
@@ -133,6 +146,17 @@ h2{
 
 .cardapio{
     margin: 0;
+}
+
+#corTotal{
+    color: #f8bd08;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Poiret One', cursive;
+}
+
+.precoTotal{
+    margin-top: 10px;
 }
 
 #meuMenu{
@@ -1057,6 +1081,8 @@ a:focus {
          color: #f8bd08;
      }
 
+
+
      .bgLogin{
          margin-top: 0px;
          margin-bottom: 0px;
@@ -1095,6 +1121,7 @@ a:focus {
  #btPedido{
     margin-left: 20%;
 }
+
 
 .forming button, #btEnviar{
     padding: 5px 10px;

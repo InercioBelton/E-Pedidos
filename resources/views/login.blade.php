@@ -87,7 +87,10 @@
                                               <div class="col-md-6 col-md-offset-4">
                                                   <div class="checkbox">
 
+                                                      <input id="chekRemember" type="checkbox" name="remember"><p id="checkRemember"> Lembrar-se de mim</p>
+
                                                       <li><a class="lkRegistrar" href="{{ url('/registar') }}">Clique aqui para se registar!</a></li>
+
                                                   </div>
                                               </div>
                                           </div>
