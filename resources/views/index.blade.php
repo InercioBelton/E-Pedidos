@@ -644,7 +644,7 @@
                                           @endif
 
 
-                                          @if(notify()->message()=="rexserva criada")
+                                          @if(notify()->message()=="reserva criada")
                                           swal({
                                                 title: "Reserva efectuada com sucesso!",
                                                 text: "Deseja fazer pedidos agora?",
@@ -660,7 +660,7 @@
                                             },
                                                       function(isConfirm){
                                                           if (isConfirm) {
-                                                              swal("Obrigado pela preferencia", "Reserva terminada", "success");
+                                                              swal("Obrigado pela preferencia", "Reserva terminada!", "success");
                                                           }else{
                                                             document.location.href = "restaurante#tituloMeuPedido";
                                                           }
