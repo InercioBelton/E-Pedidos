@@ -416,13 +416,12 @@
 
                                                                                       <div class="form-group">
 
-                                                                                          <input type="text" disabled class="form-control" name="nomeCliente" placeholder="Digite o seu nome" value="{!! $nome !!}">
+                                                                                          {!!Form::text('nomeCliente',$nome,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
 
                                                                                       </div>
 
                                                                                       <div class="form-group">
-
-                                                                                          <input type="text" disabled class="form-control" name="email" placeholder="Digite o seu email" value="{!! $email !!}">
+                                                                                          {!!Form::text('email',$email,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
 
                                                                                       </div>
 
@@ -519,7 +518,7 @@
 
                                                                                           <div class="form-group contacte">
 
-                                                                                               {!!Form::text('nome',null,['class'=>'form-control',
+                                                                                               {!!Form::text('nome',$nome,['class'=>'form-control',
                                                                                                'placeholder'=>'Digite o seu nome'])!!}
 
                                                                                               </div>
