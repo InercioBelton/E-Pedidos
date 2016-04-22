@@ -14,20 +14,46 @@
 				use App\comentario;
 
 				Route::get('/', function () {
-					echo "Welcome Mr. Belton!";
+					if(Auth::guest()){
+						return Redirect::to('mylogin');
+					}else {
+						$produtos = App\Produtos::all();
+						$categorias = App\Categoria::all();
+
+						$nome = Auth::User()->name;
+						$email = Auth::User()->email;
+
+						return view('index')->with('produtos', $produtos)->with("categorias", $categorias)->with("nome",$nome)->with("email",$email);
+					}
+
 				});
 
 
 
 
-				Route::get('restaurante', function(){
+				Route::get('restaurante', function () {
+					if(Auth::guest()){
+						return Redirect::to('mylogin');
+					}else {
+						$produtos = App\Produtos::all();
+						$categorias = App\Categoria::all();
 
-					$produtos = App\Produtos::all();
-					$categorias = App\Categoria::all();
+						$nome = Auth::User()->name;
+						$email = Auth::User()->email;
 
-					return view('index')->with('produtos',$produtos)->with("categorias",$categorias);
-
+						return view('index')->with('produtos', $produtos)->with("categorias", $categorias)->with("nome",$nome)->with("email",$email);
+					}
 				});
+
+
+				// Authentication routes...
+				Route::get('auth/login', 'Auth\AuthController@getLogin');
+				Route::post('auth/login', 'Auth\AuthController@postLogin');
+				Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+				// Registration routes...
+				Route::get('auth/register', 'Auth\AuthController@getRegister');
+				Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 
@@ -35,10 +61,14 @@
 					return view ('login');
 				});
 
+				Route::get('registar', function(){
+					return view ('registar');
+				});
+
 
 				Route::auth();
 
-				Route::get('/home', 'HomeController@index');
+
 
 				Route::resource('comentario','ComentarioController');
 

@@ -27,20 +27,36 @@ header{
 
 
 .bgLogin{
-    margin-top: 150px;
-    height: 400px;
+    margin-top: 100px;
+    height: auto;
     background: rgba(1,1,1,.4);
-    margin-bottom: 129px;
+    margin-bottom: 200px;
+}
+
+.control-label{
+    color: whitesmoke;
+}
+
+#checkRemember{
+    color: whitesmoke;
 }
 
 .lkRegistrar{
     color: whitesmoke;
+    text-decoration: none;
     opacity: .8;
     font-family:  'Niconne', cursive;
     font-size: 20px;
     text-align: center;
     margin-top: 10px;
 }
+
+#btCancelar{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
 
 #btEntrar{
     text-align: center;
@@ -60,7 +76,29 @@ header{
     opacity: .8;
 
     font-size: 20px;
+
+    margin-right: 30px;
+
+    margin-top: 10px;
+
+    margin-bottom: 30px;
 }
+
+#btCancelar:focus, #btCancelar:hover {
+
+    background-color: #f8bd08 !important;
+
+    color: #333;
+
+}
+
+.lkRegistrar:focus, .lkRegistrar:hover {
+
+    text-decoration: none;
+    color: #f8bd08;
+
+}
+
 
 #btEntrar:focus, #btEntrar:hover {
 
@@ -106,7 +144,10 @@ margin-bottom: 30px;
     background:url(images/bg.jpg) no-repeat 0% 0% / 100% auto;
 }
 
-
+#logoOut{
+    text-decoration: none;
+    color: #f8bd08;
+}
 
 .logo {
 
@@ -689,6 +730,8 @@ a:focus {
 
 }
 
+
+
 .logo {
 
     text-align: center;
@@ -702,6 +745,8 @@ a:focus {
     display: block;
 
     margin: 60px 0px;
+
+    margin-left: 60px;
 
     font-family: "Oxygen", sans-serif;
 
@@ -994,6 +1039,8 @@ a:focus {
 
 }
 
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
  @media (min-width: 120px) and (max-width: 768px) {
 
 .logo {
@@ -1004,6 +1051,11 @@ a:focus {
 
     font-size: 15px;
 }
+
+     #logoOut{
+         text-decoration: none;
+         color: #f8bd08;
+     }
 
      .bgLogin{
          margin-top: 0px;

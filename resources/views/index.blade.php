@@ -41,9 +41,9 @@
 
                                                               <div class="row">
 
-                                                                   <div class="col-md-2 col-md-offset-5 col-sm-6 col-sm-offset-3 col-xs-8">
+                                                                   <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8">
 
-                                                                       <h1 class="logo">E-Pedido</h1>
+                                                                       <h1 class="logo">{!! $nome !!} <a id="logoOut" href="{{ url('/logout') }}">~ Logout</a> </h1>
 
                                                                   </div>
 
@@ -416,13 +416,13 @@
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::text('nomeCliente',null,['class'=>'form-control','placeholder'=>'Digite o seu nome'])!!}
+                                                                                          <input type="text" disabled class="form-control" name="nomeCliente" placeholder="Digite o seu nome" value="{!! $nome !!}">
 
                                                                                       </div>
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Digite o seu email'])!!}
+                                                                                          <input type="text" disabled class="form-control" name="email" placeholder="Digite o seu email" value="{!! $email !!}">
 
                                                                                       </div>
 
@@ -598,10 +598,7 @@
                                                 text: "Comentario enviado com sucesso",
                                                 type: 'success',
                                               animation: "slide-from-top",
-                                              showCancelButton: true,
-                                              confirmButtonColor: "#DD6B55",
-                                              confirmButtonText: "Yes, delete it!",
-                                              cancelButtonText: "No, cancel plx!",
+                                              confirmButtonColor: "#f8bd08",
                                               closeOnConfirm: false,
                                               closeOnCancel: false
                                             });
@@ -614,7 +611,8 @@
                                                 type: 'success',
                                                   animation: "slide-from-top",
                                                   showCancelButton: true,
-                                                  confirmButtonColor: "#DD6B55",
+                                                  confirmButtonColor: "#f8bd08",
+                                                  cancelButtonColor: "#DD6B55",
                                                   confirmButtonText: "Nao!",
                                                   cancelButtonText: "Sim, fazer pedido",
                                                   closeOnConfirm: false,
