@@ -261,8 +261,6 @@
 
                                                                         </div>
 
-
-
                                                                     </div>
 
                                                                      <div>
@@ -355,9 +353,6 @@
                                                                             </div>
                                                                     </div>
 
-
-
-
                                                                   </div>
 
                                                            </div>
@@ -384,7 +379,7 @@
                                                                             <div class="thumb-info-caption">
                                                                                 <p class="txtItems">
                                                                                     4 Estaçoes<br>
-                                                                                    Alcatra<br>
+                                                                                    Hawaiian<br>
                                                                                     Americana<br>
                                                                                     Mexicana<br>
                                                                                     Vegetariana<br>
@@ -406,9 +401,9 @@
                                                                                 <p class="txtItems">
                                                                                     Frango<br>
                                                                                     Marguerita<br>
-                                                                                    Napolitana<br>
+                                                                                    Regina<br>
                                                                                     Peperoni<br>
-                                                                                    Presunto<br>
+                                                                                    Romana<br>
                                                                                 </p>
 
 
@@ -426,11 +421,11 @@
                                                                             </a>
                                                                             <div class="thumb-info-caption">
                                                                                 <p class="txtItems">
-                                                                                    4 Queijos<br>
-                                                                                    Atum<br>
+                                                                                    Chiken & Olives<br>
+                                                                                    BBQ Chicken<br>
+                                                                                    Bacon e Banana<br>
                                                                                     Pepperoni e queijo<br>
                                                                                     Portuguesa<br>
-                                                                                    Tomates Secos<br>
                                                                                 </p>
 
                                                                             </div>
@@ -441,9 +436,9 @@
                                                              </div>
                                                            </section>
 
+
+
                                                              <!-- Reservar Mesa -->
-
-
 
                                                   <div class="row">
 
@@ -452,7 +447,7 @@
                                                       <ul id="linkReserva" class="nav nav-tabs col-md-10 col-md-offset-1">
                                                           <li class="active"><a data-toggle="tab" href="#reserva1">Fazer reserva</a></li>
 
-                                                          <li><a data-toggle="tab" href="#reserva2">Ver minhas reservas</a></li>
+                                                          <li class=""><a data-toggle="tab" href="#reserva2">Ver minhas reservas</a></li>
 
                                                       </ul>
 
@@ -529,6 +524,7 @@
 
                                                                                       </div>
 
+
                                                                                       <!-- Div para mostrar erro na validacao de campos  -->
 
                                                                                        @if($errors->any())
@@ -557,7 +553,7 @@
 
                                                           <div id="reserva2" class="reserva col-md-10 col-md-offset-1 tab-pane fade">
 
-                                                              <p id="tituloReserva">Lista de Reservas!</p>
+                                                              <p id="tituloReserva">Lista de Reservas</p>
 
                                                               <ul class="listaReservas">
 

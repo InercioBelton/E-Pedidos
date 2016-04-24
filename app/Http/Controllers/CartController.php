@@ -25,7 +25,7 @@ class CartController extends Controller
 						$id = $_GET['cod'];
 						$userID = $_GET['userID'];
 
-				    $produto = \App\Produtos::find($id);
+				   		 $produto = \App\Produtos::find($id);
 
 
 

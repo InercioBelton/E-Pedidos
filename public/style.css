@@ -327,6 +327,9 @@
 
             .txtItems{
                 margin-top: 10px;
+                font-size: 15px;
+                font-family: 'Poiret One', cursive;
+                font-weight: bold;
             }
 
             .listaDestaque{

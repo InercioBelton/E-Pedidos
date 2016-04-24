@@ -23,15 +23,14 @@
 						$nome = Auth::User()->name;
 						$email = Auth::User()->email;
 						$id = Auth::User()->id;
-
+						
 						return view('index')->with('produtos', $produtos)->
 						with("categorias", $categorias)->with("nome",$nome)->with("email",$email)->with("id",$id);
 					}
 
 				});
 
-
-
+				
 
 				Route::get('restaurante', function () {
 					if(Auth::guest()){
@@ -90,10 +89,6 @@
 				Route::resource('comentario','ComentarioController');
 
 				Route::resource('reserva/{cod}','ReservaController@store');
-
-
-
-
 				
 
 				?>
