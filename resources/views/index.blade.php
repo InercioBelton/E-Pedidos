@@ -65,7 +65,7 @@
 
                                                                                           <li><a href="#menu">Menu</a></li>
 
-                                                                                          <li><a href="#tituloReserva">Reservar Mesa</a></li>
+                                                                                          <li><a href="#linkReserva">Reservar Mesa</a></li>
 
                                                                                           <li><a href="#tituloContacte">Contacte Nos</a></li>
 
@@ -105,8 +105,8 @@
                                                         <div class="row">
                                                             <div class="col-md-4 col-md-offset-2">
                                                                 <h1 id="menu" >Menu</h1>
-                                                                    </div>
-                                                                    </div>
+                                                            </div>
+                                                        </div>
                                                                          <div class="col-md-12 menu-list ">
                                                                             <div id="meuMenu">
                                                                             <ul class="nav nav-tabs">
@@ -136,7 +136,7 @@
 
                                                                                  <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                                                         <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
+                                                                                         <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}&userID={{$id}}"></a>
                                                                                   </p>
 
 
@@ -171,7 +171,7 @@
 
                                                                                                                       <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                                                                                          <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
+                                                                                                                          <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}&userID={{$id}}"></a>
 
                                                                                                                       </p>
 
@@ -207,7 +207,7 @@
 
                                                                                                            <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
+                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}&userID={{$id}}"></a>
 
                                                                                                            </p>
                                                                                                       </li>
@@ -238,7 +238,7 @@
 
                                                                                                            <p class="price"> {!! $Produtos->preco !!} Mtn
 
-                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}"></a>
+                                                                                                               <a class="addCart glyphicon glyphicon-chevron-right" href="cart/{{ $Produtos->id }}?cod={{ $Produtos->id }}&userID={{$id}}"></a>
 
                                                                                                            </p>
 
@@ -272,7 +272,7 @@
 
                                                                             <div class="col-md-10 col-md-offset-2  tab-content" id="meuPedido">
 
-                                                                            <!-- Cart -->
+                                                                            <!------------------------------------------------------- Cart ---------------------------------------------->
 
 
                                                                                 <ul class="listaItems">
@@ -287,7 +287,7 @@
 
                                                                                                         <p class="price"> {!! $Cart->price !!} Mtn
 
-                                                                                                            <a class="addCart glyphicon glyphicon-chevron-left" href="remove/{{ $Cart->id }}"></a>
+                                                                                                            <a class="addCart glyphicon glyphicon-chevron-left" href="removeCart/{{ $Cart->id }}"></a>
 
                                                                                                         </p>
 
@@ -296,9 +296,24 @@
 
 
                                                                                             @endforeach
-
-
                                                                                 </ul>
+
+
+                                                                                <!------------------------------------------------------- Detalhes Cart ---------------------------------------------->
+
+                                                                                <!--
+
+                                                                                <div id="detalhesCart">
+                                                                                    <label class='corDetalhes horaPedido'>Indique a hora em que gostaria de ter o seu pedido pronto...</label>
+                                                                                    <div class='form-group forming'><input type='time' name='horaPedido' class='form-control'></div>
+                                                                                    <div class='form-group forming'>
+                                                                                        <textarea id='txtObsPedido' name='preferencias'  class='form-control' rows='6' placeholder='Observacoes e preferencias...'></textarea>
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                -->
+
 
                                                                                 {{--Botao fazer Reserva--}}
 
@@ -308,8 +323,8 @@
 
 
                                                                                 <?php $items = \App\Cart::all();
-                                                                                $total = 0; ?>
 
+                                                                                $total = 0; ?>
 
 
                                                                                 @foreach($items as $Cart)
@@ -322,14 +337,18 @@
 
 
                                                                                 <div class="col-md-5 precoTotal">
-                                                                                <h3><span id="corTotal">Total: </span>{!! $total  !!} Mts</h3>
+                                                                                <h3><span class="corTotal">Total: </span>{!! $total  !!} Mts</h3>
                                                                                 </div>
 
-                                                                                <div class="col-md-2">
-                                                                                {!!Form::open(['route'=>'pedido.store', 'method'=>'POST'])!!}
-                                                                              <button id="btPedido" type="submit" class="btn">Fazer Pedido!</button>
+                                                                                <div class="col-md-2" id="botaoPedido">
 
-                                                                                {!! Form::close() !!}
+                                                                                    {!!Form::open(['url'=>'fazerPedido', 'method'=>'POST'])!!}
+
+                                                                                    <button id="btPedido"  class="btn">Fazer Pedido!</button>
+
+                                                                                    {!! Form::close() !!}
+
+
                                                                            </div>
                                                                                 </div>
                                                                        </div>
@@ -354,9 +373,9 @@
                                                              <div class="col-md-offset-2">
                                                                 <ul class="listaUl">
 
-                                                                     <li class="col-md-3 listaDestaque">
+                                                                     <li class="col-md-3 listaDestaque" id="primeiroDestaque">
                                                                         <div class="team-item thumbnail">
-                                                                            <a href="" class="thumb-info team">
+                                                                            <a class="thumb-info team">
                                                                                  <img alt="" height="270" src="images/nobre.jpg">
                                                                                 <span class="thumb-info-title">
                                                                                     <span class="thumb-info-inner">Pizzas Em Promoção</span>
@@ -377,10 +396,11 @@
 
                                                                     <li class="col-md-3 listaDestaque" >
                                                                         <div class="team-item thumbnail">
-                                                                            <a href="" class="thumb-info team">
+                                                                            <a class="thumb-info team">
                                                                                 <img alt="" height="270" src="images/mussarela.jpg">
                                                                                 <span class="thumb-info-title">
                                                                                     <span class="thumb-info-inner">Pizzas Tradicionais</span>
+                                                                                    </span>
                                                                             </a>
                                                                             <div class="thumb-info-caption">
                                                                                 <p class="txtItems">
@@ -398,7 +418,7 @@
                                                                     </li>
                                                                     <li class="col-md-3 listaDestaque">
                                                                         <div class="team-item thumbnail">
-                                                                            <a href="" class="thumb-info team">
+                                                                            <a class="thumb-info team">
                                                                                 <img alt="" height="270" src="images/especiais.jpg">
                                                                                 <span class="thumb-info-title">
                                                                                     <span class="thumb-info-inner">Pizzas Especiais</span>
@@ -423,11 +443,27 @@
 
                                                              <!-- Reservar Mesa -->
 
-                                                                  <div class="row" style="background-color: #fbf1d1">
-                                                                       <section class="reserva col-md-10 col-md-offset-1">
+
+
+                                                  <div class="row">
+
+                                              <div class="col-md-12 menu-list " style="height: auto; margin-top:20px;">
+                                                  <div id="meuMenu">
+                                                      <ul id="linkReserva" class="nav nav-tabs col-md-10 col-md-offset-1">
+                                                          <li class="active"><a data-toggle="tab" href="#reserva1">Fazer reserva</a></li>
+
+                                                          <li><a data-toggle="tab" href="#reserva2">Ver minhas reservas</a></li>
+
+                                                      </ul>
+
+
+                                                      <div class="tab-content">
+
+                                                          <div id="reserva1" class="reserva col-md-10 col-md-offset-1 tab-pane fade in active">
+
                                                                            <p id="tituloReserva">Reserve a sua mesa!</p>
 
-                                                                              {!!Form::open(['route'=>'reserva.store', 'method'=>'POST'])!!}
+                                                                              {!!Form::open(['url'=>'reserva/'.$id, 'method'=>'POST'])!!}
 
                                                                                    <div class="form">
 
@@ -505,15 +541,66 @@
 
                                                                                     </div>
 
-                                                                                  </form>
+                                                                                      </form>
 
                                                                                 </div>
 
                                                                               {!!Form::close()!!}
                                                                            </div>
+                                                              </div>
 
-                                                                        </section>
-                                                                  </div>
+
+
+
+                                                          {{------------------Lista de Reservas------------------------}}
+
+
+                                                          <div id="reserva2" class="reserva col-md-10 col-md-offset-1 tab-pane fade">
+
+                                                              <p id="tituloReserva">Lista de Reservas!</p>
+
+                                                              <ul class="listaReservas">
+
+                                                                  <?php $listaReservas = \App\Reserva::all(); ?>
+
+
+                                                                          @foreach($listaReservas as $Reserva)
+
+                                                                              @if($Reserva->userID == $id)
+                                                                                  <li id="bglista-reservas">
+
+                                                                                      <div  id="atributosReserva">
+                                                                                      <p class="menuname"><span class="corDetalhes"> Data da Reserva: </span>{!! $Reserva->data !!}<br>
+                                                                                          <span class="corDetalhes">Hora: </span>{!! $Reserva->hora !!}<br>
+                                                                                          <span class="corDetalhes">Numero de Acompanhantes: </span>  {!! $Reserva->nrAcompanhantes !!}<br>
+                                                                                          <span class="corDetalhes">Observacoes: </span> <small id="textObs">  {!! $Reserva->observacao !!}</small><br>
+
+                                                                                      </p>
+                                                                                      </div>
+
+
+                                                                                      <p class="price">
+                                                                                          <a id="btEditarReserva" class="addCart  glyphicon glyphicon-chevron-left" href="javascript:editar()">Editar</a>
+                                                                                          <a id="btCancelarReserva" class="addCart  glyphicon glyphicon-chevron-left" href="javascript:confirmDelete('removeReserva/{{ $Reserva->id }}')">Cancelar</a>
+
+                                                                                      </p>
+
+                                                                                  </li>
+                                                                            @endif
+
+                                                                          @endforeach
+
+                                                              </ul>
+
+                                                          </div>
+
+
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                      </div>
+                                                  </div>
+
 
 
 
@@ -583,7 +670,7 @@
                                                                                        <div class="col-md-2 col-md-offset-0 socialNet">
                                                                                       <a href="https://www.facebook.com/inercio.belton" target="_blank"> <img class="social" alt="facebook" src="images/facebook.png"> </a>
                                                                                       <a href="https://www.twitter.com/inercioB" target="_blank"> <img class="social" alt="twitter" src="images/twitter.png"> </a>
-                                                                                      <a href=""> <img class="social" alt="Google Plus" src="images/google.png"> </a>
+                                                                                      <a href="https://plus.google.com/106262656100458648070" target="_blank"> <img class="social" alt="Google Plus" src="images/google.png"> </a>
                                                                                       </div>
 
                                                                               </div>
@@ -610,9 +697,61 @@
 
 
 
+
+
+
+
                                     <!-- Mensagens de alerta com SweetAlert -->
 
                                         <script>
+
+
+                                            function pedido(){
+
+//                                                document.getElementById('meuPedido').innerHTML = "<style>#meuPedido{border: none;}</style>"
+
+                                                $('div').on('click', function(){
+                                                    $(this).toggleClass('mostrarDetalhes');
+                                                });
+
+                                                        }
+
+                                        </script>
+
+
+                                        <script>
+
+
+
+
+                                            function confirmDelete(delUrl) {
+
+                                                swal({
+                                                            title: "Atencao!",
+                                                            text: "Deseja cancelar esta reserva?",
+                                                            type: 'warning',
+                                                            animation: "slide-from-top",
+                                                            showConfirmButton: true,
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: "#f8bd08",
+                                                            cancelButtonColor: "#DD6B55",
+                                                            confirmButtonText: "Sim",
+                                                            cancelButtonText: "Nao",
+                                                            closeOnConfirm: true,
+                                                            closeOnCancel: true
+                                                        },
+                                                        function(isConfirm){
+                                                            if (isConfirm) {
+                                                                document.location = delUrl;
+                                                            }else{
+                                                                document.location.href = "restaurante#linkReserva";
+                                                            }
+                                                        });
+                                            }
+
+
+
+
                                           @if(notify()->ready())
                                             @if(notify()->message()=="Obrigado pelo seu comentario!")
                                               swal({
@@ -630,8 +769,7 @@
                                             swal({
                                                   title: "Accao indisponivel... por enquanto!",
                                                   text: "Esta accao devera mostrar um pequeno form com detalhes do pedido," +
-                                                  "como por exemplo a especificacao da hora que o cliente deseja ter o pedido pronto e algumas observacoes/preferencias do cliente, caso existam.<br>" +
-                                                  "(para ja os items do pedido serao iliminados) ",
+                                                  "como por exemplo a especificacao da hora que o cliente deseja ter o pedido pronto e algumas observacoes/preferencias do cliente, caso existam.<br>",
                                                   type: 'warning',
 
                                                   confirmButtonColor: "#f8bd08",
@@ -708,12 +846,19 @@
                                                         });
                                                     });
                                                 });
+
+
+
+
+
+
+
                                             </script>
 
                                         <!--
 
 
-                                        document.getElementById('id').innerHTML = 'Your content';
+
 
 
                                         FIM! -->

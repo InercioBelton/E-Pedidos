@@ -22,8 +22,10 @@
 
 						$nome = Auth::User()->name;
 						$email = Auth::User()->email;
+						$id = Auth::User()->id;
 
-						return view('index')->with('produtos', $produtos)->with("categorias", $categorias)->with("nome",$nome)->with("email",$email);
+						return view('index')->with('produtos', $produtos)->
+						with("categorias", $categorias)->with("nome",$nome)->with("email",$email)->with("id",$id);
 					}
 
 				});
@@ -40,8 +42,12 @@
 
 						$nome = Auth::User()->name;
 						$email = Auth::User()->email;
+						$id = Auth::User()->id;
 
-						return view('index')->with('produtos', $produtos)->with("categorias", $categorias)->with("nome",$nome)->with("email",$email);
+
+
+						return view('index')->with('produtos', $produtos)->with("categorias", $categorias)->
+						with("nome",$nome)->with("email",$email)->with("id",$id);
 					}
 				});
 
@@ -65,25 +71,27 @@
 					return view ('registar');
 				});
 
+				Route::get('removeCart/{id}', function($id){
+					App\Cart::destroy($id);
+					return redirect()->away('/restaurante#tituloMeuPedido');
+				});
+
+				Route::get('removeReserva/{cod}', function($cod){
+					App\Reserva::destroy($cod);
+					return redirect()->away('/restaurante#linkReserva');
+				});
 
 				Route::auth();
 
-
-
-				Route::resource('comentario','ComentarioController');
-
-				Route::resource('reserva','ReservaController');
-
-				Route::get('remove/{id}', function($id){
-					App\Cart::destroy($id);
-					return redirect()->away('/restaurante#menu');
-				});
+				Route::resource('fazerPedido','PedidoController@store');
 
 				Route::resource('cart/{id}','CartController@store');
 
+				Route::resource('comentario','ComentarioController');
+
+				Route::resource('reserva/{cod}','ReservaController@store');
 
 
-				Route::resource('pedido','PedidoController');
 
 
 				

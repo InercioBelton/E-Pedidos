@@ -1,3 +1,13 @@
+<?php
+
+$carts = \App\Cart::all();
+
+foreach ($carts as $Cart){
+    $Cart::destroy($Cart->id);
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -96,7 +106,7 @@
                                           </div>
 
                                           <div class="form-group">
-                                              <div class="col-md-6 col-md-offset-4">
+                                              <div class="col-md-7 col-md-offset-5">
                                                   <button id="btEntrar" type="submit" class="btn btn-primary">
                                                       <i class="fa fa-btn fa-sign-in"></i>Login
                                                   </button>

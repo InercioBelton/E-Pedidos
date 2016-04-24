@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Usuario extends Migration
+class Cart extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,16 @@ class Usuario extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function(Blueprint $table){
+        Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->rememberToken();
+            $table->string('nomeProd');
+            $table->double('price');
+            $table->integer('quant');
+            $table->integer('clienteID')->unsigned();
+            $table->foreign('clienteID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -29,6 +29,6 @@ class Usuario extends Migration
      */
     public function down()
     {
-        Schema::drop('usuarios');
+        Schema::drop('carts');
     }
 }

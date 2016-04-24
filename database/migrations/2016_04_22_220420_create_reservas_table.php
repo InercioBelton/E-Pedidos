@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Reserva extends Migration
+class CreateReservasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class Reserva extends Migration
      */
     public function up()
     {
-         Schema::create('reservas', function (Blueprint $table) {
+        Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomeCliente');
             $table->string('email');
@@ -21,6 +21,9 @@ class Reserva extends Migration
             $table->time('hora');
             $table->integer('nrAcompanhantes');
             $table->string('observacao');
+            $table->integer('userID')->unsigned();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
