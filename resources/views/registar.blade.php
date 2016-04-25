@@ -60,13 +60,25 @@
                         <label class="col-md-4 control-label">Nome</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-
-                            @if ($errors->has('name'))
-                                <span class="help-block">
+                            <div class="col-md-6" style="padding: 0;">
+                            <input type="text" class="form-control" name="name" placeholder="Primeiro" value="{{ old('name') }}">
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                            @endif
+                                @endif
+                                </div>
+
+                            <div class="col-md-6" style="padding-right: 0">
+                                <input type="text" class="form-control" name="apelido" value="{{ old('apelido') }}"placeholder="Apelido">
+                                @if ($errors->has('apelido'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('apelido') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+
                         </div>
                     </div>
 

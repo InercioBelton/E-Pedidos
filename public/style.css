@@ -163,9 +163,20 @@
 
             .corDetalhes{
                 color: #f8bd08;
-                font-size: 17px;
+                font-size: 15px;
                 font-weight: bold;
                 font-family: 'Poiret One', cursive;
+            }
+
+            .corHeading{
+                background-color: #f8bd08 !important;
+                padding: 7px;
+                border:none;
+            }
+
+            .corHeading h4 a{
+                color: white !important;
+                font-size: 15px !important;
             }
 
             #detalhesCart{
@@ -445,8 +456,10 @@
 
 
                         #meuPedido{
-                            height: 270px;
+                            height: 315px;
                             border: 1px solid #f8bd08;
+                            padding: 0;
+                            margin-top: -20px;
                         }
 
 
@@ -529,7 +542,7 @@
             .listaProdutos{
                 margin-left: 0;
                 margin-right: 0;
-              max-height:300px;
+              max-height:330px;
               overflow-y:auto;
             }
 
@@ -554,12 +567,13 @@
             }
 
             .listaItems{
-                max-height:260px;
+                max-height:195px;
                 overflow-y:auto;
             }
 
             .menu-list{
                 height: 370px;
+                padding: 0;
             }
 
             .listaUl{
@@ -818,7 +832,8 @@
             }
 
             #txtObsPedido{
-                height: 100px !important;
+                height: 90px !important;
+                margin-bottom: 0;
             }
 
 
@@ -1190,6 +1205,14 @@
 
                 font-size: 13px;
             }
+
+                 h2{
+                     margin-left: 0;
+                 }
+
+                 #subtituloHeader{
+                     margin-left: 0;
+                 }
 
                  #logoOut{
                      text-decoration: none;

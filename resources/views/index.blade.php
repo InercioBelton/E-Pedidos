@@ -263,50 +263,97 @@
 
                                                                     </div>
 
-                                                                     <div>
+
+                                                            <!------------------------------------------------------- Cart ---------------------------------------------->
+
+
+
+                                                            <div>
                                                                        <div class="row">
                                                                         <div class="col-md-6">
                                                                             <h1 id="tituloMeuPedido">Meu Pedido</h1>
 
-                                                                            <div class="col-md-10 col-md-offset-2  tab-content" id="meuPedido">
-
-                                                                            <!------------------------------------------------------- Cart ---------------------------------------------->
+                                                                            <div class="colapsable col-md-10 col-md-offset-2  tab-content">
 
 
-                                                                                <ul class="listaItems">
-
-                                                                                            <?php $items = \App\Cart::all() ?>
-
-                                                                                            @foreach($items as $Cart)
-
-                                                                                                    <li>
-
-                                                                                                       <p class="menuname">{!! $Cart->quant !!}  {!! $Cart->nomeProd !!}</p>
-
-                                                                                                        <p class="price"> {!! $Cart->price !!} Mtn
-
-                                                                                                            <a class="addCart glyphicon glyphicon-chevron-left" href="removeCart/{{ $Cart->id }}"></a>
-
-                                                                                                        </p>
-
-                                                                                                    </li>
+                                                                                    <div class="panel-group" id="accordion"  style="margin: 0; background: white;">
 
 
+                                                                                        <div class="panel panel-default" id="meuPedido" style="margin:0;">
 
-                                                                                            @endforeach
-                                                                                </ul>
+
+                                                                                            <div class="panel-heading corHeading">
+                                                                                                <h4 class="panel-title corHeading">
+                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style=" color: #2b2d2f; font-size: 12px;" >1. Seleccionar de Items</a>
+                                                                                                </h4>
+
+                                                                                            </div>
+
+                                                                                            <div id="collapse1" class="panel-collapse collapse in" style="background: white;">
+                                                                                                <div class="panel-body" style="border: none;" >
+
+                                                                                                    <div>
+
+                                                                                                        <ul class="listaItems">
+
+                                                                                                            <?php $items = \App\Cart::all() ?>
+
+                                                                                                            @foreach($items as $Cart)
+
+                                                                                                                <li>
+
+                                                                                                                    <p class="menuname">{!! $Cart->quant !!}  {!! $Cart->nomeProd !!}</p>
+
+                                                                                                                    <p class="price"> {!! $Cart->price !!} Mtn
+
+                                                                                                                        <a class="addCart glyphicon glyphicon-chevron-left" href="removeCart/{{ $Cart->id }}"></a>
+
+                                                                                                                    </p>
+
+                                                                                                                </li>
+
+
+
+                                                                                                            @endforeach
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                            </div>
+                                                                                        </div>
+
+
+
+                                                                                            <div class="panel-heading corHeading">
+                                                                                                <h4 class="panel-title corHeading">
+                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style=" color: #2b2d2f; font-size: 12px;" >2. Preencher Detalhes</a>
+                                                                                                </h4>
+
+                                                                                            </div>
+                                                                                            <div id="collapse2" class="panel-collapse collapse" style="background: white;">
+                                                                                                <div class="panel-body" style="border: none; height: 200px;" >
+
+                                                                                                    <div>
+
+                                                                                                            <label class='corDetalhes horaPedido'>Indique a hora em que gostaria de ter o seu pedido pronto</label>
+                                                                                                            <div class='form-group forming'><input type='time' name='horaPedido' class='form-control'></div>
+                                                                                                            <div class='form-group forming'>
+                                                                                                                <textarea id='txtObsPedido' name='preferencias'  class='form-control' rows='6' placeholder='Observacoes e preferencias...'></textarea>
+                                                                                                            </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+
+                                                                                </div>
+                                                                                    </div>
+                                                                                </div>
+
 
 
                                                                                 <!------------------------------------------------------- Detalhes Cart ---------------------------------------------->
 
                                                                                 <!--
 
-                                                                                <div id="detalhesCart">
-                                                                                    <label class='corDetalhes horaPedido'>Indique a hora em que gostaria de ter o seu pedido pronto...</label>
-                                                                                    <div class='form-group forming'><input type='time' name='horaPedido' class='form-control'></div>
-                                                                                    <div class='form-group forming'>
-                                                                                        <textarea id='txtObsPedido' name='preferencias'  class='form-control' rows='6' placeholder='Observacoes e preferencias...'></textarea>
-                                                                                    </div>
+
 
                                                                                 </div>
 
@@ -315,7 +362,7 @@
 
                                                                                 {{--Botao fazer Reserva--}}
 
-                                                                         </div>
+
                                                                             <div class="row">
                                                                             <div id="fazerReserva" class="forming col-md-12 col-md-offset-2">
 
@@ -350,6 +397,8 @@
                                                                            </div>
                                                                                 </div>
                                                                        </div>
+
+
                                                                             </div>
                                                                     </div>
 
@@ -481,7 +530,7 @@
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::text('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone'])!!}
+                                                                                        {!!Form::number('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone'])!!}
 
                                                                                       </div>
 

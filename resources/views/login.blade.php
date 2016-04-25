@@ -62,7 +62,7 @@ foreach ($carts as $Cart){
 
                                   <div class="row">
                                         <div class="col-md-12 loginForm">
-                                      <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                                      <form class="form-horizontal formRegistar" role="form" method="POST" action="{{ url('/login') }}">
                                           {!! csrf_field() !!}
 
                                           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
