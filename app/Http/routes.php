@@ -82,9 +82,11 @@
 
 				Route::auth();
 
-				Route::resource('fazerPedido','PedidoController@store');
+
 
 				Route::resource('cart/{id}','CartController@store');
+
+				Route::resource('fazerPedido/{idUser}','PedidoController@store');
 
 				Route::resource('comentario','ComentarioController');
 

@@ -12,7 +12,7 @@ class Produtos extends Migration
      */
     public function up()
     {
-         Schema::create('produtos', function (Blueprint $table) {
+         Schema::create('produto', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomeProduto');
             $table->double('preco');
@@ -27,6 +27,6 @@ class Produtos extends Migration
      */
     public function down()
     {
-        Schema::drop('produtos');
+        Schema::drop('produto');
     }
 }

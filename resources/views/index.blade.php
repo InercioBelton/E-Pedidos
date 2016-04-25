@@ -300,6 +300,7 @@
 
                                                                                                             @foreach($items as $Cart)
 
+                                                                                                                    @if($Cart->pedidoID == null)
                                                                                                                 <li>
 
                                                                                                                     <p class="menuname">{!! $Cart->quant !!}  {!! $Cart->nomeProd !!}</p>
@@ -312,8 +313,7 @@
 
                                                                                                                 </li>
 
-
-
+                                                                                                                    @endif
                                                                                                             @endforeach
                                                                                                         </ul>
                                                                                                     </div>
@@ -332,12 +332,13 @@
                                                                                                 <div class="panel-body" style="border: none; height: 200px;" >
 
                                                                                                     <div>
-
+                                                                                                        {!!Form::open(['url'=>'fazerPedido/'.$id, 'method'=>'POST'])!!}
                                                                                                             <label class='corDetalhes horaPedido'>Indique a hora em que gostaria de ter o seu pedido pronto</label>
                                                                                                             <div class='form-group forming'><input type='time' name='horaPedido' class='form-control'></div>
                                                                                                             <div class='form-group forming'>
                                                                                                                 <textarea id='txtObsPedido' name='preferencias'  class='form-control' rows='6' placeholder='Observacoes e preferencias...'></textarea>
                                                                                                             </div>
+
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -349,18 +350,7 @@
 
 
 
-                                                                                <!------------------------------------------------------- Detalhes Cart ---------------------------------------------->
-
-                                                                                <!--
-
-
-
-                                                                                </div>
-
-                                                                                -->
-
-
-                                                                                {{--Botao fazer Reserva--}}
+                                                                                {{--Botao fazer Pedido--}}
 
 
                                                                             <div class="row">
@@ -373,11 +363,12 @@
 
 
                                                                                 @foreach($items as $Cart)
+                                                                                        @if($Cart->pedidoID == null)
                                                                                         <?php
                                                                                     $preco = $Cart->price;
 
                                                                                      $total = $total + $preco; ?>
-
+                                                                                        @endif
                                                                                 @endforeach
 
 
@@ -387,14 +378,11 @@
 
                                                                                 <div class="col-md-2" id="botaoPedido">
 
-                                                                                    {!!Form::open(['url'=>'fazerPedido', 'method'=>'POST'])!!}
-
-                                                                                    <button id="btPedido"  class="btn">Fazer Pedido!</button>
-
-                                                                                    {!! Form::close() !!}
-
+                                                                                    <button type="submit" id="btPedido" class="btn">Fazer Pedido!</button>
 
                                                                            </div>
+
+                                                                                    {!!Form::close()!!}
                                                                                 </div>
                                                                        </div>
 
@@ -812,10 +800,9 @@
 
                                             @if(notify()->message()=="pedido")
                                             swal({
-                                                  title: "Accao indisponivel... por enquanto!",
-                                                  text: "Esta accao devera mostrar um pequeno form com detalhes do pedido," +
-                                                  "como por exemplo a especificacao da hora que o cliente deseja ter o pedido pronto e algumas observacoes/preferencias do cliente, caso existam.<br>",
-                                                  type: 'warning',
+                                                  title: "Pedido efectuado com sucesso!",
+                                                  text: "Aguarde mensagem de confirmacao por email",
+                                                  type: 'success',
 
                                                   confirmButtonColor: "#f8bd08",
                                                   closeOnConfirm: false,

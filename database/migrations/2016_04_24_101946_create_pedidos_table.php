@@ -18,8 +18,6 @@ class CreatePedidosTable extends Migration
             $table->foreign('clienteID')->references('id')->on('users')->onDelete('cascade');
             $table->time('hora');
             $table->string('observacao');
-            $table->integer('itemsID')->unsigned();
-            $table->foreign('itemsID')->references('id')->on('carts')->onDelete('cascade');
             $table->timestamps();
         });
     }

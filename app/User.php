@@ -27,9 +27,6 @@ class User extends Authenticatable
     public function reservas(){
         return $this->belongsTo('App\Reserva');
     }
-
-    public function pedidos(){
-        return $this->belongsTo('App\Pedidos');
-    }
+    
 
 }

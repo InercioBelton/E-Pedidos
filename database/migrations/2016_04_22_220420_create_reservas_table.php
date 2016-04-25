@@ -12,7 +12,7 @@ class CreateReservasTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservas', function (Blueprint $table) {
+        Schema::create('reserva', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomeCliente');
             $table->string('email');

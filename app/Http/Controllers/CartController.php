@@ -27,8 +27,7 @@ class CartController extends Controller
 
 				   		 $produto = \App\Produtos::find($id);
 
-
-
+						
                     $item = array();
 
 
@@ -38,7 +37,6 @@ class CartController extends Controller
 						 'nomeProd' => $produto->nomeProduto,
 						 'price' => $produto->preco,
 						 'quant' => '1',
-						 'clienteID' => $userID,
 					 ]);
 						return redirect()->away('/restaurante#menu');
 
