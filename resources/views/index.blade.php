@@ -284,7 +284,8 @@
 
                                                                                             <div class="panel-heading corHeading">
                                                                                                 <h4 class="panel-title corHeading">
-                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style=" color: #2b2d2f; font-size: 12px;" >1. Seleccionar de Items</a>
+                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style=" color: #2b2d2f; font-size: 12px;" >1. Seleccionar de Items  <span class="
+glyphicon glyphicon-shopping-cart"></span></a></a>
                                                                                                 </h4>
 
                                                                                             </div>
@@ -324,7 +325,7 @@
 
                                                                                             <div class="panel-heading corHeading">
                                                                                                 <h4 class="panel-title corHeading">
-                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style=" color: #2b2d2f; font-size: 12px;" >2. Preencher Detalhes</a>
+                                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style=" color: #2b2d2f; font-size: 12px;" >2. Preencher Detalhes  <span class="glyphicon glyphicon-list-alt"></span> </a>
                                                                                                 </h4>
 
                                                                                             </div>

@@ -107,7 +107,7 @@ foreach ($carts as $Cart){
 
                                           <div class="form-group">
                                               <div class="col-md-7 col-md-offset-5">
-                                                  <button id="btEntrar" type="submit" class="btn btn-primary">
+                                                  <button id="btEntrar" type="submit" class="btn btn-primary ">
                                                       <i class="fa fa-btn fa-sign-in"></i>Login
                                                   </button>
 
