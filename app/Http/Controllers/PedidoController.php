@@ -18,6 +18,7 @@ class PedidoController extends Controller
 
     public function store(PedidoRequest $request, $idUser){
 
+
        $pedido = \App\Pedidos::create([
 
             'id' => null,
@@ -35,6 +36,7 @@ class PedidoController extends Controller
                 $Cart->save();
             }
         }
+        
 
 
         notify()->flash('pedido','success');

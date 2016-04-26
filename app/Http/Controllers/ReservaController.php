@@ -34,8 +34,9 @@ class ReservaController extends Controller
 						]);
 
 						 notify()->flash('reserva criada','success');
+						
 
-						return redirect()->away('/restaurante#linkReserva');
+						return redirect()->away('/restaurante#linkReserva')->with();
 
 
 

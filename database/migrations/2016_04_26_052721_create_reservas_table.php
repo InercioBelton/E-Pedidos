@@ -12,7 +12,7 @@ class CreateReservasTable extends Migration
      */
     public function up()
     {
-        Schema::create('reserva', function (Blueprint $table) {
+        Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nomeCliente');
             $table->string('email');
@@ -23,6 +23,8 @@ class CreateReservasTable extends Migration
             $table->string('observacao');
             $table->integer('userID')->unsigned();
             $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('pedidoReserva')->unsigned();
+            $table->foreign('pedidoReserva')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();
         });
     }

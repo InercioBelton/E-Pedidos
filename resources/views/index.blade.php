@@ -1,3 +1,5 @@
+                                <? $reservaPedido; ?>
+
                                     <!DOCTYPE html>
                                     <html>
                                         <head>
@@ -34,6 +36,7 @@
 
                                         </head>
                                         <body>
+
                                               <header id="myHeader">
                                                         <div class="headbar">
 
@@ -92,7 +95,6 @@
                                                    </div>
 
                                             </header>
-
 
 
 
@@ -739,25 +741,6 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                         <script>
 
-
-                                            function pedido(){
-
-//                                                document.getElementById('meuPedido').innerHTML = "<style>#meuPedido{border: none;}</style>"
-
-                                                $('div').on('click', function(){
-                                                    $(this).toggleClass('mostrarDetalhes');
-                                                });
-
-                                                        }
-
-                                        </script>
-
-
-                                        <script>
-
-
-
-
                                             function confirmDelete(delUrl) {
 
                                                 swal({
@@ -779,6 +762,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
                                                                 document.location = delUrl;
                                                             }else{
                                                                 document.location.href = "restaurante#linkReserva";
+
                                                             }
                                                         });
                                             }
@@ -834,6 +818,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
                                                               swal("Obrigado pela preferencia", "Reserva terminada!", "success");
                                                           }else{
                                                             document.location.href = "restaurante#tituloMeuPedido";
+                                                              {!!  $reservaPedido = true !!}
                                                           }
                                                       });
                                               @endif
