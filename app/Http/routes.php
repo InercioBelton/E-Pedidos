@@ -84,9 +84,13 @@
 
 
 
+				Route::resource('mail','MailController');
+
 				Route::resource('cart/{id}','CartController@store');
 
 				Route::resource('fazerPedido/{idUser}','PedidoController@store');
+				
+				Route::resource('editarReserva/{id}','ReservaController@edit');
 
 				Route::resource('comentario','ComentarioController');
 

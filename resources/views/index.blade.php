@@ -35,8 +35,7 @@
 
 
                                         </head>
-                                        <body>
-
+                                        <? $reservaPedido; ?>
                                               <header id="myHeader">
                                                         <div class="headbar">
 
@@ -338,6 +337,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
                                                                                                         {!!Form::open(['url'=>'fazerPedido/'.$id, 'method'=>'POST'])!!}
                                                                                                             <label class='corDetalhes horaPedido'>Indique a hora em que gostaria de ter o seu pedido pronto</label>
                                                                                                             <div class='form-group forming'><input type='time' name='horaPedido' class='form-control'></div>
+
                                                                                                             <div class='form-group forming'>
                                                                                                                 <textarea id='txtObsPedido' name='preferencias'  class='form-control' rows='6' placeholder='Observacoes e preferencias...'></textarea>
                                                                                                             </div>
@@ -521,7 +521,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::number('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone'])!!}
+                                                                                        {!!Form::number('telefone',null,['class'=>'form-control','placeholder'=>'Digite o seu numero de telefone','required'=>'required'])!!}
 
                                                                                       </div>
 
@@ -531,19 +531,19 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::date('data',null,['class'=>'form-control'])!!}
+                                                                                        {!!Form::date('data',null,['class'=>'form-control','required'=>'required'])!!}
 
                                                                                       </div>
 
                                                                                       <div class="form-group">
 
-                                                                                       {!!Form::time('hora',null,['class'=>'form-control'])!!}
+                                                                                       {!!Form::time('hora',null,['class'=>'form-control','required'=>'required'])!!}
 
                                                                                       </div>
 
                                                                                       <div class="form-group">
 
-                                                                                        {!!Form::number('nrAcompanhantes',null,['class'=>'form-control','placeholder'=>'Digite o numero de acompanhantes'])!!}
+                                                                                        {!!Form::number('nrAcompanhantes',null,['class'=>'form-control','placeholder'=>'Digite o numero de acompanhantes','required'=>'required'])!!}
 
 
                                                                                       </div>
@@ -650,7 +650,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                                                         </div>
 
-                                                                          {!!Form::open(['route'=>'comentario.store', 'method'=>'POST'])!!}
+                                                                          {!!Form::open(['route'=>'mail.store', 'method'=>'POST'])!!}
 
                                                                          <div class="form">
 
@@ -658,7 +658,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
                                                                              <div class="col-md-7 col-md-offset-1">
 
 
-                                                                                  <form role="form" id="form2">
+                                                                                  <form role="form" id="contact_form">
 
                                                                                       <div class="col-md-5">
 
@@ -682,7 +682,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                                                                    <div class="form-group contacte">
 
-                                                                                       {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'3', 'id'=>'txtComentario', 'placeholder'=>'Deixe o seu comentario'])!!}
+                                                                                       {!!Form::textarea('observacao',null,['class'=>'form-control','rows'=>'3', 'id'=>'txtComentario', 'placeholder'=>'Deixe o seu comentario','required'=>'required'])!!}
 
                                                                                   </div>
 
@@ -741,6 +741,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
                                         <script>
 
+
                                             function confirmDelete(delUrl) {
 
                                                 swal({
@@ -771,11 +772,12 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
 
 
                                           @if(notify()->ready())
-                                            @if(notify()->message()=="Obrigado pelo seu comentario!")
+                                            @if(notify()->message()=="email")
                                               swal({
                                                 title: "Obrigado pelo seu comentario!",
-                                                text: "Comentario enviado com sucesso",
+                                                text: "Comentario enviado com sucesso para "+"<html>{!! $email !!}</html>",
                                                 type: 'success',
+                                              html: true,
                                               animation: "slide-from-top",
                                               confirmButtonColor: "#f8bd08",
                                               closeOnConfirm: false,

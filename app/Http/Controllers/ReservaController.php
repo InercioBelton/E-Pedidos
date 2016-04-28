@@ -21,7 +21,7 @@ class ReservaController extends Controller
 					public function store(ReservaRequest $request, $cod){
 						
 
-						\App\Reserva::create([
+					$reserva =	\App\Reserva::create([
 							'nomeCliente' => $request['nomeCliente'],
 							'telefone' =>  $request['telefone'],
 							'email' => $request['email'],
@@ -34,11 +34,9 @@ class ReservaController extends Controller
 						]);
 
 						 notify()->flash('reserva criada','success');
-						
+						$idReserva = $reserva->id;
 
-						return redirect()->away('/restaurante#linkReserva');
-
-
+						return redirect()->away('/restaurante#linkReserva')->with('idReserva',$idReserva);
 
 						}
 
@@ -48,7 +46,9 @@ class ReservaController extends Controller
 					}
 
 					public function edit($id){
-						
+
+							
+
 					}
 
 					public function update(ReservaRequest $request, $id){
