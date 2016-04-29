@@ -40,26 +40,30 @@
                 color: whitesmoke;
             }
 
-            #checkRemember{
-                color: whitesmoke;
-            }
 
             .lkRegistrar{
+                color: #f8bd08;
+                text-decoration: none;
+                opacity: .8;
+                font-family:  'Niconne', cursive;
+                font-size: 20px;
+
+            }
+
+            .lkTexto{
                 color: whitesmoke;
                 text-decoration: none;
                 opacity: .8;
                 font-family:  'Niconne', cursive;
                 font-size: 20px;
-                text-align: center;
-                margin-top: 10px;
             }
 
             #checkRemember{
                 color: whitesmoke;
                 opacity: .8;
                 font-size: 20px;
-                margin-left: 10px;
-                margin-top: -5px;
+                margin-left: 5px;
+                margin-top: -7px;
                 font-family:  'Niconne', cursive;
             }
 

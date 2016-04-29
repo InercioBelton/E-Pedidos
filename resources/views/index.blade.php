@@ -775,7 +775,7 @@ glyphicon glyphicon-shopping-cart"></span></a></a>
                                             @if(notify()->message()=="email")
                                               swal({
                                                 title: "Obrigado pelo seu comentario!",
-                                                text: "Comentario enviado com sucesso para "+"<html>{!! $email !!}</html>",
+                                                text: "Comentario enviado com sucesso",
                                                 type: 'success',
                                               html: true,
                                               animation: "slide-from-top",

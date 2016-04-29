@@ -97,9 +97,9 @@ foreach ($carts as $Cart){
                                               <div class="col-md-6 col-md-offset-4">
                                                   <div class="checkbox">
 
-                                                      <input id="chekRemember" type="checkbox" name="remember"><p id="checkRemember"> Lembrar-se de mim</p>
+                                                      <input  type="checkbox" name="remember"><p id="checkRemember"> Lembrar-se de mim</p>
 
-                                                      <li><a class="lkRegistrar" href="{{ url('/registar') }}">Clique aqui para se registar!</a></li>
+                                                      <li class="lkTexto">Clique <a class="lkRegistrar" href="{{ url('/registar') }}">aqui</a> para se registar!</li>
 
                                                   </div>
                                               </div>
